@@ -1,0 +1,135 @@
+# ARBORESCENCE COMPLÈTE DU PORTFOLIO
+# Dernière mise à jour : $(date)
+
+portfolio/
+├── A_propos_de_moi.html              # Page "Qui suis-je"
+├── BTS_SIO.html                      # Page dédiée au BTS SIO
+├── Mes_projets.html                  # Page des projets
+├── apache-config.html                # Page configuration Apache
+├── contact.html                      # Page de contact
+├── filius.html                       # Page projet Filius
+├── github_medium.html                # Page GitHub Medium
+├── index.html                        # Page d'accueil principale
+├── ip-twins.html                     # Page projet IP Twins
+├── linkedin.html                     # Page LinkedIn
+├── linux.html                        # Page Linux
+├── organisation_fichier.txt          # Ce fichier d'organisation
+├── portfolio.html                    # Page portfolio
+├── trello.html                       # Page Trello
+├── widget_php.html                   # Page widget PHP
+├── windows-server.html               # Page Windows Server
+├── wrong_connection.html             # Page erreur de connexion
+└── assets/                           # Dossier des ressources
+    ├── bootstrap-icons-1.11.3/       # Icônes Bootstrap (1800+ fichiers SVG)
+    │   ├── 0-circle.svg
+    │   ├── 0-square.svg
+    │   ├── 1-circle.svg
+    │   ├── [...] (plus de 1800 icônes SVG)
+    │   ├── youtube.svg
+    │   ├── zoom-in.svg
+    │   ├── zoom-out.svg
+    │   └── font/                     # Dossier des polices d'icônes
+    ├── css/                          # Feuilles de style CSS
+    │   └── main.css                  # Feuille de style principale
+    ├── docs/                         # Documentation
+    ├── img/                          # Images du portfolio
+    └── js/                           # Scripts JavaScript
+
+## STRUCTURE DU PORTFOLIO
+
+### Pages principales :
+- **index.html** : Page d'accueil avec navigation principale
+- **Mes_projets.html** : Présentation des projets réalisés
+- **BTS_SIO.html** : Informations sur le BTS SIO
+- **A_propos_de_moi.html** : Présentation personnelle
+- **contact.html** : Formulaire de contact
+
+### Pages de projets spécifiques :
+- **apache-config.html** : Configuration Apache
+- **filius.html** : Projet Filius
+- **ip-twins.html** : Projet IP Twins
+- **linux.html** : Projets Linux
+- **windows-server.html** : Projets Windows Server
+- **widget_php.html** : Widget PHP
+
+### Pages de liens externes :
+- **github_medium.html** : Lien vers GitHub
+- **linkedin.html** : Lien vers LinkedIn
+- **trello.html** : Lien vers Trello
+- **portfolio.html** : Portfolio externe
+
+### Pages utilitaires :
+- **wrong_connection.html** : Page d'erreur de connexion
+
+### Ressources (assets/) :
+- **bootstrap-icons-1.11.3/** : Plus de 1800 icônes SVG Bootstrap
+- **css/** : Feuilles de style CSS personnalisées
+- **img/** : Images et médias du portfolio
+- **js/** : Scripts JavaScript pour l'interactivité
+- **docs/** : Documentation technique
+
+## 🛠️ TECHNOLOGIES UTILISÉES
+
+### Frontend
+- **HTML5** : Structure sémantique
+- **CSS3** : Styles, animations et mode sombre
+- **JavaScript** : Interactivité et gestion du thème
+- **Bootstrap Icons** : Iconographie
+
+### Fonctionnalités
+- **Mode Sombre** : Basculement automatique avec sauvegarde des préférences
+- **Responsive Design** : Compatible mobile/desktop
+- **LocalStorage** : Sauvegarde des préférences utilisateur
+- **Détection système** : Adaptation automatique au thème du système
+
+### Outils
+- **Formspree** : Gestion des formulaires de contact
+- **AOS** : Animations au scroll
+- **SVG** : Format vectoriel pour les icônes
+
+## NAVIGATION
+
+Le site utilise une navigation principale avec les sections :
+1. Accueil (index.html)
+2. Projets (Mes_projets.html)
+3. BTS SIO (BTS_SIO.html)
+4. Contact (contact.html)
+5. Qui suis-je (A_propos_de_moi.html)
+
+## 📝 NOTES TECHNIQUES
+
+- **Navigation** : Menu sticky avec liens relatifs
+- **Images** : Optimisées pour le web, format responsive
+- **Formulaires** : Validation côté client et serveur (Formspree)
+- **Performance** : CSS et JS minifiés en production
+- **SEO** : Balises meta optimisées, structure sémantique
+- **Mode Sombre** : Bouton flottant en haut à droite, transitions fluides
+- **Accessibilité** : Support des préférences système, labels ARIA
+
+## 🌙 FONCTIONNALITÉS DU MODE SOMBRE
+
+### Activation
+- **Bouton flottant** : Icône lune/soleil en haut à droite
+- **Détection automatique** : Suit les préférences système par défaut
+- **Sauvegarde** : Mémorisation du choix utilisateur dans localStorage
+
+### Styles adaptés
+- **Couleurs** : Palette sombre avec contrastes optimisés
+- **Transitions** : Animations fluides lors du basculement
+- **Cohérence** : Tous les éléments (cartes, formulaires, navigation) adaptés
+
+### Compatibilité
+- **Toutes les pages** : Mode sombre disponible sur l'ensemble du portfolio
+- **Responsive** : Fonctionne sur mobile et desktop
+- **Persistance** : Le choix est conservé entre les sessions
+
+## MAINTENANCE
+
+- Vérifier régulièrement les liens externes
+- Mettre à jour les projets dans Mes_projets.html
+- Maintenir la cohérence de navigation entre les pages
+- Optimiser les images dans le dossier img/
+- Valider le code HTML/CSS régulièrement
+
+Total des fichiers : ~1830 fichiers (principalement des icônes SVG)
+Taille approximative : Variable selon les images et médias ajoutés

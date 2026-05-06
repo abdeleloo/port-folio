@@ -1,0 +1,70 @@
+© LessonSharing – All rights reserved
+TP Mise en place d’une stratégie de
+sauvegarde et de protection des fichiers
+© LessonSharing – All rights reserved
+OBJECTIFS
+Objectif : Expérimenter différentes stratégies de sauvegarde et de protection des fichiers
+Objectifs pédagogiques :
+● Configurer et tester différentes méthodes de sauvegarde : complète, incrémentielle et
+différentielle.
+● Mettre en place des mécanismes de protection des fichiers pour éviter leur modification ou
+suppression non autorisée.
+● Automatiser les sauvegardes et la surveillance des fichiers sensibles.
+● Sécuriser les logs systèmes sous Linux et Windows.
+Matériel requis :
+● Une machine sous Linux (Debian/Ubuntu)
+● Une machine sous Windows
+© LessonSharing – All rights reserved
+Partie 1 : Sauvegarde et synchronisation des fichiers sous Linux
+Contexte
+Vous êtes administrateur système et devez mettre en place un mécanisme de sauvegarde pour protéger un
+dossier contenant des fichiers sensibles. Vous devez tester 3 types de sauvegarde :
+● Une sauvegarde complète, permettant de copier l'intégralité des fichiers vers un répertoire de stockage.
+● Une sauvegarde incrémentielle, qui n’enregistre que les fichiers modifiés depuis la dernière sauvegarde.
+● Une sauvegarde différentielle, qui conserve toutes les modifications depuis la dernière sauvegarde
+complète.
+Travail demandé :
+● Effectuer une sauvegarde complète d’un répertoire source vers un répertoire de destination.
+● Mettre en place une sauvegarde incrémentielle permettant de ne sauvegarder que les fichiers modifiés.
+● Automatiser la sauvegarde différentielle avec un script qui s'exécute de manière récurrente (quotidienne,
+hebdomadaire ou mensuelle).
+© LessonSharing – All rights reserved
+Partie 2 : Protection des fichiers et des logs sous Linux
+Contexte
+Un attaquant ayant obtenu des privilèges administrateurs peut modifier ou supprimer des fichiers
+critiques du système, notamment ceux liés aux comptes utilisateurs et aux logs d'événements. Vous
+devez sécuriser ces fichiers pour empêcher toute modification non autorisée.
+Travail demandé :
+● Appliquer des restrictions sur un fichier critique pour empêcher sa modification et sa
+suppression, même par un utilisateur root.
+● Mettre en place un système de surveillance qui génère des alertes en cas de modification d’un
+fichier sensible.
+● Vérifier les logs de surveillance pour identifier les tentatives de modification non autorisées.
+© LessonSharing – All rights reserved
+Partie 3 : Sauvegarde et protection des logs sous Windows
+Contexte
+Les logs d’événements sous Windows sont cruciaux pour analyser une intrusion. Cependant, un
+attaquant avec des droits élevés peut tenter de les effacer pour cacher ses traces. Vous devez
+mettre en place une politique de protection et d’archivage des logs.
+Travail demandé :
+● Restreindre l’accès aux fichiers de logs pour empêcher leur modification ou suppression non
+autorisée.
+● Configurer un système d’exportation automatique des logs vers un serveur distant.
+● Vérifier l’intégrité des logs après plusieurs opérations de test (modification, suppression tentée,
+accès refusé).
+© LessonSharing – All rights reserved
+Partie 4 : Détection des modifications et sauvegarde sous Windows
+Contexte
+Votre entreprise souhaite surveiller les modifications effectuées sur des fichiers critiques et
+automatiser leur sauvegarde. Vous devez configurer un mécanisme de surveillance des fichiers et
+une solution de sauvegarde automatisée.
+Travail demandé :
+● Configurer un système de surveillance pour détecter toute modification dans un répertoire
+spécifique.
+● Automatiser la sauvegarde des fichiers en utilisant un outil de synchronisation pour copier
+régulièrement les nouvelles versions vers un dossier sécurisé.
+● Tester le mécanisme en effectuant des modifications et analyser les résultats dans les journaux
+d’événements.
+© LessonSharing – All rights reserved
+FIN
+Que dit une mère à son fils geek quand le diner est servi ? Alt Tab !!!

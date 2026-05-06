@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows Server - Abdessamad EL-OUASSAI</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  ## 2. Uniformisation des références CSS Bootstrap Icons vers les fichiers locaux
+  
+  ### Pour les fichiers utilisant actuellement le CDN :
+  
+  **BTS_SIO.html** - Ligne 9 :
+```html
+<link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+```
+</head>
+<body class="project-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Déploiement Windows Server</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2 class="page-title"><i class="bi bi-server"></i> Mise en place d'un serveur Windows</h2>
+      
+      <div class="project-content">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Installation de Windows Server 2012</h3>
+          <ul>
+            <li>Configuration du partitionnement</li>
+            <li>Choix des rôles serveur</li>
+            <li>Installation des fonctionnalités de base</li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Configuration des services</h3>
+          <ul>
+            <li>Active Directory Domain Services</li>
+            <li>DNS et DHCP</li>
+            <li>Gestion des stratégies de groupe</li>
+          </ul>
+        </div>
+
+        <div class="screenshot-grid">
+          <img src="assets/img/windows-server-1.jpg" alt="Interface d'administration">
+          <img src="assets/img/windows-server-2.jpg" alt="Gestion des utilisateurs">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!-- 
+  Fichier : index.html
+  Description : Page d'accueil du portfolio 
+  Astuce : Pense à mettre à jour les chemins (img, css, js) 
+           si tu modifies l'arborescence de ton projet.
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Caractères spéciaux en français -->
+  <meta charset="utf-8">
+  <!-- Responsive : assure le bon affichage sur mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Titre de la page -->
+  <title>Portfolio - Abdessamad EL-OUASSAI</title>
+
+  <!-- Lien vers la feuille de style principale -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Exemple : icônes Bootstrap si tu les utilises vraiment 
+       (À confirmer si tu as bien un dossier vendor/bootstrap-icons) -->
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body class="index-page">
+
+  <!-- 
+    HEADER / NAVIGATION
+    Structure fixe en haut de la page, 
+    avec un logo + un menu de navigation
+  -->
+  <header class="header">
+    <div class="container">
+      <!-- Logo ou nom complet -->
+      <h1 class="logo">Abdessamad EL-OUASSAI</h1>
+      <!-- Menu de navigation -->
+      <nav class="navmenu">
+        <ul>
+          <!-- Ajout de l'attribut class="active" sur la page courante -->
+          <li><a href="index.html" class="active">Accueil</a></li>
+          <li><a href="Mes_projets.html">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 
+    SECTION ACCUEIL
+    Présentation générale (photo, texte d'intro, etc.)
+  -->
+  <section id="accueil" class="hero">
+    <div class="container">
+      <div class="hero-content">
+
+        <!-- Photo de profil -->
+        <img 
+          src="assets/img/photo-profile2.jpg" 
+          alt="Photo d'Abdessamad EL-OUASSAI" 
+          class="profile-photo" 
+          style="max-width: 150px; border-radius: 50%; margin-bottom: 20px;"
+        >
+        
+        <h2>Développeur Full Stack en Formation</h2>
+        <p>
+          Étudiant en BTS SIO (première année), actuellement en apprentissage chez 
+          <strong><a href="https://www.iptwins.com/" target="_blank">IP Twins</a></strong> (2024–2026).
+        </p>
+        <p>Compétences principales : HTML/CSS, JavaScript, Python, PHP et bases de données SQL.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 
+    SECTION PROJETS
+    Aperçu de quelques projets (on peut cliquer pour aller sur la page "Mes_projets.html")
+  -->
+  <section id="projets" class="section">
+    <div class="container">
+      <h3>Mes Projets Récents</h3>
+      <div class="projets-grid">
+
+        <!-- Projet 1 -->
+        <div class="projet-card">
+          <a href="portfolio.html">
+            <img src="assets/img/projet1.jpg" alt="Projet développement web">
+          </a>
+          <h4>Portfolio Personnel</h4>
+          <p>HTML/CSS - JavaScript</p>
+        </div>
+
+        <!-- Projet 2 -->
+        <div class="projet-card">
+          <a href="wrong_connection.html">
+            <img src="assets/img/projet2.jpg" alt="Projet base de données">
+          </a>
+          <h4>Gestion d'utilisateurs</h4>
+          <p>PHP  - HTML - JS</p>
+        </div>
+      </div>
+      <a href="Mes_projets.html" class="btn">Autre Projets</a>
+    </div>
+  </section>
+
+  <!-- 
+    SECTION BTS SIO
+    Présentation de la formation BTS SIO 
+  -->
+  <section id="bts" class="section bg-light">
+    <div class="container">
+      <h3>Mon Parcours en BTS SIO</h3>
+      <div class="bts-content">
+        <div class="bts-text">
+          <p>En première année, je découvre l’option SLAM.</p>
+          <ul>
+            <li>Développement d'applications</li>
+            <li>Cybersécurité</li>
+            <li>Gestion de bases de données</li>
+          </ul>
+          <!-- Bouton stylisé menant vers plus d'infos -->
+          <a href="BTS_SIO.html" class="btn">En savoir plus</a>
+        </div>
+        <!-- Image d'illustration plus grande -->
+        <img src="assets/img/bts-sio.jpg" alt="Illustration BTS SIO" class="bts-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- 
+    SECTION CONTACT 
+    Version simplifiée (infos directes)
+  -->
+  <section id="contact" class="section">
+    <div class="container contact-info">
+      <h3>Me Contacter</h3>
+      <p>
+        <i class="bi bi-envelope"></i>
+        <a href="mailto:elouassai.a@gmail.com">elouassai.a@gmail.com</a>
+      </p>
+      <!-- Lien vers LinkedIn -->
+      <p>
+        <img src="assets/img/linkedin-icon.jpg" alt="Icône LinkedIn" class="linkedin-icon" />
+        <a href="https://www.linkedin.com/in/abdeleloo" target="_blank">Profil LinkedIn</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 
+    PIED DE PAGE
+    Mentions légales, droits d'auteur, etc.
+  -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <!-- 
+    Lien vers le fichier JavaScript principal
+    Sera chargé en dernier pour optimiser le temps de chargement
+  -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de projet avec Trello</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="trello-page">
+  
+  <!-- Header identique à index.html -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Abdessamad EL-OUASSAI</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Bandeau hero avec image de fond -->
+  <section class="trello-hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/trello.png');">
+    <div class="container">
+      <h1>Gestion de projet avec Trello</h1>
+      <p class="hero-subtitle">Organisation et collaboration d'équipe</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- Section PDF -->
+    <section class="pdf-section">
+      <div class="pdf-container">
+        <button onclick="togglePDF()" class="btn">
+          <i class="bi bi-file-earmark-pdf"></i> 
+          Afficher/Masquer la documentation
+        </button>
+        <iframe 
+          src="assets/docs/DOC-trello.pdf#view=fitH" 
+          class="pdf-frame" 
+          id="pdfFrame"
+          title="Documentation Trello"
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- Compétences clés -->
+    <section class="key-skills">
+      <div class="skill-card" onmouseover="animateCard(this)" onmouseout="resetCard(this)">
+        <h3><i class="bi bi-kanban"></i> Workflow mis en place</h3>
+        <ul>
+          <li>3 tableaux créés</li>
+          <li>12 listes organisées</li>
+          <li>45+ cartes gérées</li>
+        </ul>
+      </div>
+
+      <div class="skill-card" onmouseover="animateCard(this)" onmouseout="resetCard(this)">
+        <h3><i class="bi bi-graph-up"></i> Résultats obtenus</h3>
+        <ul>
+          <li>+30% d'efficacité</li>
+          <li>15% de tâches en retard</li>
+          <li>100% de collaboration</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Demo interactive -->
+    <section class="trello-demo">
+      <h2>Démonstration interactive</h2>
+      <div class="trello-board">
+        <div class="list" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <h4>À faire</h4>
+          <div class="card" draggable="true" ondragstart="drag(event)" id="card1">Maquetter du AlterZen</div>
+          <div class="card" draggable="true" ondragstart="drag(event)" id="card2">Réaliser le site en html/css/js</div>
+        </div>
+        
+        <div class="list" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <h4>En cours</h4>
+          <div class="card" draggable="true" ondragstart="drag(event)" id="card3">Développer le JS</div>
+        </div>
+        
+        <div class="list" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <h4>Terminé</h4>
+          <div class="card" draggable="true" ondragstart="drag(event)" id="card4">Réunion de lancement</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer identique à index.html -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script>
+    // Gestion PDF
+    function togglePDF() {
+      const pdfFrame = document.getElementById('pdfFrame');
+      pdfFrame.style.display = pdfFrame.style.display === 'none' ? 'block' : 'none';
+    }
+
+    // Animation des cartes
+    function animateCard(card) {
+      card.style.transform = 'translateY(-10px)';
+      card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)';
+    }
+
+    function resetCard(card) {
+      card.style.transform = 'translateY(0)';
+      card.style.boxShadow = '0 3px 10px rgba(0,0,0,0.1)';
+    }
+
+    // Drag & Drop
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      const data = ev.dataTransfer.getData("text");
+      const targetList = ev.target.closest('.list');
+      if(targetList) {
+        targetList.appendChild(document.getElementById(data));
+      }
+    }
+
+    // Initialisation
+    document.getElementById('pdfFrame').style.display = 'none';
+  </script>
+
+  <style>
+    /* Styles spécifiques à la page Trello */
+    .trello-page {
+      background: #f4f5f7;
+    }
+
+    .trello-hero {
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .trello-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+
+    .pdf-section {
+      margin: 40px 0;
+    }
+
+    .pdf-container {
+      text-align: center;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: 600px;
+      border: none;
+      margin-top: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+
+    .key-skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 40px 0;
+    }
+
+    .skill-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .trello-demo {
+      margin: 50px 0;
+    }
+
+    .trello-board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      background: #f4f5f7;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .list {
+      background: #ebecf0;
+      padding: 15px;
+      border-radius: 8px;
+      min-height: 200px;
+    }
+
+    .card {
+      background: white;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      cursor: move;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateX(5px);
+    }
+
+    @media (max-width: 768px) {
+      .trello-hero {
+        padding: 80px 0;
+      }
+      
+      .pdf-frame {
+        height: 400px;
+      }
+      
+      .trello-board {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

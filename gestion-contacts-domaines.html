@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des Contacts Domaines</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Gestion des Contacts Domaines</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container documentation-section">
+    <section class="section">
+      <div class="doc-header">
+        <h2><i class="bi bi-person-badge"></i> Formulaire multi-rôles (Titulaire, Administratif, Technique)</h2>
+        <p>Interface d’administration des contacts domaines avec chargement depuis portefeuille, options Proxy, et application aux domaines.</p>
+      </div>
+
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Contexte et objectifs</h3>
+          <ul>
+            <li>Gérer les contacts Titulaire, Administratif, Technique pour des noms de domaine</li>
+            <li>Accélérer la saisie via chargement depuis le portefeuille</li>
+            <li>Deux services Proxy disponibles pour la confidentialité WHOIS</li>
+            <li>Appliquer la même configuration à tous les portefeuilles clients (hiérarchie mère/fille)</li>
+          </ul>
+          <div class="diagram-container">
+            <img src="assets/img/portefeuille-utlisateur.png" alt="Vue portefeuille et domaines" class="diagram-img">
+            <p class="diagram-caption">Vue d’ensemble: portefeuille et domaines ciblés</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Interface de saisie</h3>
+          <p>Trois colonnes avec champs obligatoires: prénom/nom, organisation, adresse, ville, code postal, pays, téléphone, fax, email.</p>
+          <div class="code-card">
+            <img src="assets/img/contacts-domain-form.png" alt="Formulaire contacts multi-rôles" class="img-fluid">
+            <div class="code-description">Formulaire: menus déroulants, chargement portefeuille, proxy, validation</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
+          </div>
+          <div class="project-item" style="margin-top:20px;">
+            <h4>Données et mapping</h4>
+            <ul>
+              <li>Données disponibles: tous les champs visibles (prénom, nom, organisation, adresse, ville, code postal, pays, téléphone, fax, email)</li>
+              <li>Chargement depuis portefeuille: préremplissage conforme au mapping par champ</li>
+              <li>Validation par format: email, indicatif pays pour téléphone/fax, codes postaux</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Flux et application</h3>
+          <ul>
+            <li>Chargement des données: portefeuille → champs préremplis (identités multiples par client)</li>
+            <li>Application globale: bouton « Appliquer à tous les domaines » et à tous les portefeuilles liés (mère/fille)</li>
+            <li>Validation: champs obligatoires, formats email/téléphone</li>
+            <li>Journalisation: suivi des modifications par domaine</li>
+          </ul>
+          <div class="diagram-container">
+            <img src="assets/img/contacts-apply-all.png" alt="Application aux domaines" class="diagram-img">
+            <p class="diagram-caption">Application aux domaines: confirmation et résumé des changements</p>
+          </div>
+          <div class="project-item" style="margin-top:20px;">
+            <h4>Règles registrars/TLD</h4>
+            <ul>
+              <li>Variations par pays et extension: champs requis et contraintes selon registrar/TLD</li>
+              <li>Contrôles conditionnels: exigences spécifiques appliquées au moment de la validation</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="doc-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Sécurité et conformité</h3>
+          <ul>
+            <li>Deux Proxy WHOIS: sélection selon politique client/TLD</li>
+            <li>Contrôles d’accès par rôle</li>
+            <li>Traçabilité des actions (logs d’audit)</li>
+            <li>Protection des données personnelles</li>
+          </ul>
+          <div class="code-card">
+            <img src="assets/img/contacts-security.png" alt="Sécurité et confidentialité" class="img-fluid">
+            <div class="code-description">Paramètres de sécurité et visibilité des contacts</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
+          </div>
+          <div class="project-item" style="margin-top:20px;">
+            <h4>Identités par client</h4>
+            <ul>
+              <li>Gestion une ou plusieurs identités: sélection et application par portefeuille</li>
+              <li>Hiérarchie: portefeuilles mère/fille liés au client</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="doc-step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Résultats et prochaines étapes</h3>
+          <ul>
+            <li>Formulaire unifié déployé pour l’administration des contacts</li>
+            <li>Réduction du temps de gestion multi-domaines</li>
+            <li>Prochaines étapes: import CSV, API d’automatisation, validations renforcées</li>
+          </ul>
+          <div class="diagram-container">
+            <img src="assets/img/contacts-summary.png" alt="Résumé des résultats" class="diagram-img">
+            <p class="diagram-caption">Résumé des opérations et état des domaines</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

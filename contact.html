@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Abdessamad EL-OUASSAI</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <!-- Icônes locales -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="contact-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Contact</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="contact-section">
+      <!-- Formulaire de contact -->
+      <div class="contact-form">
+        <h2>Envoyez-moi un message</h2>
+        <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+          <div class="form-group">
+            <label for="name">Nom complet</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Adresse email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Sujet</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-send">
+            <img src="assets/img/icons/send-icon.png" alt="Icône d'envoi" class="icon">
+            Envoyer le message
+          </button>
+        </form>
+      </div>
+
+      <!-- Coordonnées & Réseaux -->
+      <div class="contact-info">
+        <h2>Coordonnées</h2>
+        <div class="contact-card">
+          <p><img src="assets/img/icons/email-icon.png" alt="Email" class="icon"> elouassai.a@gmail.com</p>
+          <p><img src="assets/img/icons/phone-icon.png" alt="Téléphone" class="icon"> (+33) 6 64 74 10 54</p>
+          
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/abdeleloo" target="_blank">
+              <img src="assets/img/icons/linkedin-icon.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/abdeleloo" target="_blank">
+              <img src="assets/img/icons/github-icon.png" alt="GitHub">
+            </a>
+            <a href="https://medium.com/@elouassai.a" target="_blank">
+              <img src="assets/img/icons/medium-icon.png" alt="Medium">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

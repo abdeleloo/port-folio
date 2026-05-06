@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAS OpenMediaVault (OMV)</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page nas-page">
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">NAS OpenMediaVault (OMV)</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container documentation-section">
+    <section class="section">
+      <div class="doc-header">
+        <h2><i class="bi bi-hdd-network"></i> Documentation du NAS OpenMediaVault (OMV)</h2>
+      </div>
+
+      <!-- 1. Vue d'ensemble du système -->
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Vue d’Ensemble du Système</h3>
+          <ul>
+            <li>Rôle: Serveur de Stockage en Réseau (NAS)</li>
+            <li>Objectif: Sauvegarde sécurisée et stockage centralisé pour home lab</li>
+            <li>OS: OpenMediaVault (basé Debian)</li>
+            <li>Matériel: PC portable (coût et encombrement réduits)</li>
+            <li>IP interne (ancienne): 192.168.1.85 (à confirmer sur réseau TP-Link)</li>
+          </ul>
+          <div class="diagram-container">
+            <img src="assets/img/omv-dashboard.png" alt="Tableau de bord OMV" class="diagram-img">
+            <p class="diagram-caption">Tableau de bord OMV: état du système et services</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. Configuration du stockage physique -->
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Configuration du Stockage Physique</h3>
+          <h4>A. Disques et RAID</h4>
+          <table class="table-info">
+            <thead>
+              <tr><th>Périphérique</th><th>Taille</th><th>Rôle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Disque 1</td><td>500 Go</td><td>Membre du RAID 5</td></tr>
+              <tr><td>Disque 2</td><td>500 Go</td><td>Membre du RAID 5</td></tr>
+              <tr><td>Disque 3</td><td>500 Go</td><td>Membre du RAID 5</td></tr>
+              <tr><td>Disque 4</td><td>500 Go</td><td>Membre du RAID 5</td></tr>
+              <tr><td>Total Brut</td><td>2 To</td><td>-</td></tr>
+              <tr><td>Volume Utilisable</td><td>1.5 To</td><td>Perte tolérée: 1 disque</td></tr>
+            </tbody>
+          </table>
+
+          <h4>B. Préparation des Disques</h4>
+          <p>4×500 Go connectés au PC portable. Formatage préliminaire ext4 (outil tiers Windows) pour vérifier détection et disponibilité avant création du RAID.</p>
+
+          <h4>C. Création du Tableau RAID 5 (OMV)</h4>
+          <ul>
+            <li>Menu: Stockage → RAID</li>
+            <li>Niveau: RAID 5, disques: 4×500 Go</li>
+            <li>Résultat: volume résilient tolérant 1 panne disque</li>
+          </ul>
+          <div class="diagram-container">
+            <img src="assets/img/omv-raid-config.png" alt="Configuration RAID 5 dans OMV" class="diagram-img">
+            <p class="diagram-caption">Écran de configuration du RAID 5 dans OMV</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Configuration du stockage logique -->
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Configuration du Stockage Logique</h3>
+          <h4>A. Système de Fichiers</h4>
+          <ul>
+            <li>Menu: Stockage → Systèmes de fichiers</li>
+            <li>Périphérique: volume RAID 5 (ex: /dev/md0)</li>
+            <li>FS: EXT4, formatage puis montage</li>
+          </ul>
+          <div class="diagram-container">
+            <img src="assets/img/omv-filesystem.png" alt="Création système de fichiers et montage" class="diagram-img">
+            <p class="diagram-caption">Création et montage du système de fichiers EXT4</p>
+          </div>
+
+          <h4>B. Utilisateurs et Partages</h4>
+          <ul>
+            <li>Utilisateurs: création d’utilisateurs non admin</li>
+            <li>Dossiers partagés: Sauvegardes_PC, Photos, Documents</li>
+            <li>Permissions ajustées par dossier</li>
+            <li>Services SMB/CIFS: activés et partages configurés</li>
+          </ul>
+          <div class="diagram-container">
+            <img src="assets/img/omv-smb-shares.png" alt="Partages SMB/CIFS" class="diagram-img">
+            <p class="diagram-caption">Configuration des partages SMB/CIFS</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. Statut et prochaines étapes -->
+      <article class="doc-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Statut Actuel et Prochaines Étapes</h3>
+          <ul>
+            <li>Statut: NAS opérationnel, 1.5 To RAID 5, serveur de fichiers sur le réseau</li>
+            <li>À vérifier: IP statique/réservée sur nouveau réseau TP-Link</li>
+          </ul>
+          <div class="diagram-container">
+            <img src="assets/img/omv-network-settings.png" alt="Paramètres réseau et IP" class="diagram-img">
+            <p class="diagram-caption">Paramètres réseau (IP réservée/statique sur TP-Link)</p>
+          </div>
+          <h4>Prochaines évolutions</h4>
+          <ul>
+            <li>Ajouter un SSD pour Docker/cache</li>
+            <li>Mettre en place rsync/Veeam Agent pour sauvegardes clients vers le RAID</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

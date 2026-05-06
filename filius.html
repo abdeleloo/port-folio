@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulation réseau avec Filius - Abdessamad EL-OUASSAI</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="filius-page">
+  
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Abdessamad EL-OUASSAI</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Simulation réseau avec Filius</h1>
+
+    <!-- Présentation Filius -->
+    <section class="filius-presentation">
+      <div class="presentation-content">
+        <img src="assets/img/filius-interface.png" alt="Interface Filius" class="interface-img">
+        <div class="presentation-text">
+          <h2>Outils maîtrisés</h2>
+          <ul class="competence-list">
+            <li><i class="bi bi-router"></i> Configuration de routeurs</li>
+            <li><i class="bi bi-hdd-network"></i> Création de topologies</li>
+            <li><i class="bi bi-shield-lock"></i> Sécurisation des flux</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exemple de configuration -->
+    <section class="config-section bg-light">
+      <div class="config-grid">
+        <div class="config-card">
+          <img src="assets/img/network-diagram.jpg" alt="Schéma réseau">
+          <h3>Topologie réalisée</h3>
+          <ul>
+            <li>2 sous-réseaux interconnectés</li>
+            <li>Routeur Cisco simulé</li>
+            <li>Test de connectivité</li>
+          </ul>
+        </div>
+        
+        <div class="config-card">
+          <img src="assets/img/ip-configuration.jpg" alt="Configuration IP">
+          <h3>Paramétrage avancé</h3>
+          <ul>
+            <li>Adressage IPv4/IPv6</li>
+            <li>Configuration DHCP</li>
+            <li>Tables de routage</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Résultats -->
+    <section class="results-section">
+      <h2>Résultats obtenus</h2>
+      <div class="results-grid">
+        <div class="result-card">
+          <i class="bi bi-speedometer2"></i>
+          <div class="result-value">100%</div>
+          <p>Connectivité réussie</p>
+        </div>
+        <div class="result-card">
+          <i class="bi bi-clock-history"></i>
+          <div class="result-value">2.4ms</div>
+          <p>Latence moyenne</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <style>
+    /* Styles spécifiques Filius */
+    .filius-page {
+      background: #f8f9fa;
+    }
+
+    .page-title {
+      text-align: center;
+      margin: 40px 0;
+      color: #2c3e50;
+    }
+
+    .filius-presentation {
+      margin: 50px 0;
+    }
+
+    .presentation-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .interface-img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .competence-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .competence-list li {
+      margin: 20px 0;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .bi-router, .bi-hdd-network, .bi-shield-lock {
+      font-size: 1.5rem;
+      color: #3498db;
+    }
+
+    .config-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .config-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .config-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .config-card h3 {
+      padding: 15px;
+      margin: 0;
+      background: #3498db;
+      color: white;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .result-card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .result-card i {
+      font-size: 2rem;
+      color: #3498db;
+    }
+
+    .result-value {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    @media (max-width: 768px) {
+      .presentation-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

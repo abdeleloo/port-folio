@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLPI - Mise en place et gestion</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page glpi-page">
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">GLPI — Gestion de parc et helpdesk</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container documentation-section">
+    <section class="section">
+      <div class="doc-header">
+        <h2><i class="bi bi-clipboard-data"></i> Projet GLPI (en formation)</h2>
+        <p>Mise en place de GLPI sur un serveur Linux, création d’utilisateurs, inventaire des machines et démonstration par captures d’écran.</p>
+      </div>
+
+      <!-- Étape 1: Pré-requis serveur -->
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Prérequis et préparation du serveur</h3>
+          <ul>
+            <li>OS: Ubuntu Server (22.04 LTS)</li>
+            <li>Packages: Apache2, PHP (extensions: intl, curl, gd, xml, mbstring), MariaDB</li>
+            <li>Création d’une base et d’un utilisateur MariaDB dédiés</li>
+          </ul>
+          <div class="code-card">
+            <img src="assets/img/glpi-server-setup.png" alt="Préparation du serveur et paquets" class="img-fluid">
+            <div class="code-description">Installation des paquets serveur (Apache/PHP/MariaDB)</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Étape 2: Installation GLPI -->
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Installation et configuration initiale de GLPI</h3>
+          <ul>
+            <li>Téléchargement du paquet GLPI (release officielle) et déploiement dans <code>/var/www/glpi</code></li>
+            <li>Configuration du VirtualHost Apache et des permissions</li>
+            <li>Lancement de l’installateur web et configuration de la base</li>
+          </ul>
+          <div class="diagram-container">
+            <img src="assets/img/glpi-install-wizard.png" alt="Assistant d’installation GLPI" class="diagram-img">
+            <p class="diagram-caption">Assistant web: choix de la langue, dépendances, configuration DB</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Étape 3: Connexion et interface -->
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Connexion et interface d’administration</h3>
+          <p>Connexion à l’interface GLPI via le navigateur, vérification des menus et des droits.</p>
+          <div class="code-card">
+            <img src="assets/img/glpi-login.png" alt="Écran de connexion GLPI" class="img-fluid">
+            <div class="code-description">Écran de connexion GLPI</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Étape 4: Utilisateurs (5) -->
+      <article class="doc-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Création des utilisateurs</h3>
+          <p>5 utilisateurs de profils différents pour simuler un contexte réel.</p>
+          <table class="table-info">
+            <thead>
+              <tr><th>Nom</th><th>Profil</th><th>Rôle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Admin GLPI</td><td>Super-Admin</td><td>Administration globale</td></tr>
+              <tr><td>Tech N1</td><td>Technicien</td><td>Support niveau 1</td></tr>
+              <tr><td>Tech N2</td><td>Technicien</td><td>Support niveau 2</td></tr>
+              <tr><td>Utilisateur A</td><td>Self-service</td><td>Création de tickets</td></tr>
+              <tr><td>Utilisateur B</td><td>Self-service</td><td>Création de tickets</td></tr>
+            </tbody>
+          </table>
+          <div class="code-card">
+            <img src="assets/img/glpi-users.png" alt="Liste des utilisateurs GLPI" class="img-fluid">
+            <div class="code-description">Interface de gestion des utilisateurs</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Étape 5: Machines (7) -->
+      <article class="doc-step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Inventaire des machines</h3>
+          <p>7 machines renseignées pour l’inventaire: nom, OS, usage.</p>
+          <table class="table-info">
+            <thead>
+              <tr><th>Nom</th><th>OS</th><th>Usage</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>PC-ADMIN</td><td>Windows 11 Pro</td><td>Administration</td></tr>
+              <tr><td>PC-TECH-01</td><td>Windows 10</td><td>Support N1</td></tr>
+              <tr><td>PC-TECH-02</td><td>Ubuntu 22.04</td><td>Support N2</td></tr>
+              <tr><td>LAPTOP-A</td><td>Windows 10</td><td>Bureautique</td></tr>
+              <tr><td>LAPTOP-B</td><td>macOS</td><td>Bureautique</td></tr>
+              <tr><td>SRV-GLPI</td><td>Ubuntu Server</td><td>GLPI</td></tr>
+              <tr><td>SRV-FILES</td><td>Ubuntu Server</td><td>Fichiers</td></tr>
+            </tbody>
+          </table>
+          <div class="code-card">
+            <img src="assets/img/glpi-computers.png" alt="Liste des ordinateurs GLPI" class="img-fluid">
+            <div class="code-description">Inventaire des machines — parc informatique</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Étape 6: Tickets et plugins -->
+      <article class="doc-step">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <h3>Tickets, notifications et plugins</h3>
+          <ul>
+            <li>Création de tickets depuis les utilisateurs, affectation aux techniciens</li>
+            <li>Notifications email configurées (ex: SMTP local/test)</li>
+            <li>Plugins utiles: inventory, additionalfields (selon disponibilité)</li>
+          </ul>
+          <div class="project-infos-grid">
+            <div class="code-card">
+              <img src="assets/img/glpi-tickets.png" alt="Tickets GLPI" class="img-fluid">
+              <div class="code-description">Vue des tickets et workflow de résolution</div>
+              <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
+            </div>
+            <div class="code-card">
+              <img src="assets/img/glpi-plugins.png" alt="Plugins GLPI" class="img-fluid">
+              <div class="code-description">Plugins activés et paramètres</div>
+              <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Étape 7: Résumé et captures globales -->
+      <article class="doc-step">
+        <div class="step-number">7</div>
+        <div class="step-content">
+          <h3>Résumé</h3>
+          <ul>
+            <li>GLPI installé, base configurée, 5 utilisateurs créés, 7 machines inventoriées</li>
+            <li>Interface opérationnelle: tickets, notifications, plugins</li>
+          </ul>
+          <div class="diagram-container">
+            <img src="assets/img/glpi-dashboard.png" alt="Dashboard GLPI" class="diagram-img">
+            <p class="diagram-caption">Tableau de bord GLPI — indicateurs et accès rapide</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

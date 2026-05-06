@@ -1,0 +1,56 @@
+TP - Hardening Linux lvl 1
+L'objectif de ce TP est de construire une machine Linux proposant des mesures de sécurisation de
+base au niveau de sa mise en place.
+1) Gestion de la racine
+Installation
+Le partitionnement du disque doit être construit afin de satisfaire à la matrice suivante (sur la base
+d'un disque de 16Go):
+Id MountPoint Size Options Type
+00 / 1Go None ext4
+01 /boot 512Mo nosuid, nodev, noexec fat32
+02 None 2Go None swap
+03 /var 4Go nosuid, nodev, noexec ext4
+04 /usr 4Go nodev ext4
+05 /home Reste nosuid, nodev, noexec ext4
+Les permissions suivantes doivent également être appliquées :
+/tmp => nosuid, nodev, noexec
+/proc => hidepid=2
+Données chiffrées
+Un second disque prévu pour contenir les données applicatives doit être mis en place selon les
+spécifications suivantes :
+2) Authentification
+Afin de garantir la sécurité du compte root, celui-ci devra être "désactivé" et l'authentification directe
+en tant que root ne doit plus être possible.
+A la place, deux comptes doivent être créés :
+La sécurité de l'authentification de la machine devra prendre en compte un système d'authentification
+à 2 facteurs pour le compte localadm (au travers d'un google authenticator).
+Le compte rescue ne doit pas pouvoir être utilisé pour une connexion distante (SSH).
+Le point de montage doit être un dossier /data
+Le disque doit être monté en LVM pour garantir sa scalabilité
+Le disque doit contenir une unique partition LUKS chiffrée
+Le déchiffrement du disque doit se faire au travers d'une clé USB contenant une partition unique
+servant de key-file
+Le déchiffrement doit se faire automatiquement au démarrage
+Un script /data/get_data.sh doit exister si le montage n'a pas été possible et rechercher la clé
+USB jusqu'à ce qu'il la trouve et qu'il procède successivement au déchiffrement et au montage
+du /data
+localadm : Ce compte fait partie des sudoers (en NOPASSWD).
+rescue : Ce compte fait également partie des sudoers (en ALL).
+Dans un but d'améliorer la lisibilité de l'utilisation des privilèges sudo, il vous est demandé de faire en
+sorte que chaque accès soit à présent journalisé à part dans un fichier /var/log/sudo.log
+3) Bootloader
+Afin de garantir la sécurité de la séquence de démarrage, il est nécessaire d'appliquer les
+modifications suivantes sur le bootloader :
+Notes
+Dans l'idéal, l'authentification devrait être gérée au niveau d'un système d'annuaire central et les
+dossiers utilisateurs devraient être distribués par le réseau.
+Les options des pseudo filesystems se placent directement au niveau du fichier /etc/fstab :
+proc /proc proc defaults,hidepid=2 0 0
+tmpfs /tmp tmpfs defaults,nosuid,nodev,noexec 0 0
+Dans un environnement de virtualisation, la clé USB peut être simulée par un disque secondaire
+que l'on déconnectera de la machine virtuelle pour valider le bon fonctionnement
+Pour que le Google Authenticator fonctionne en SSH, il est nécessaire de placer le paramètre
+suivante : ChallengeResponseAuthentication yes
+Modification des permissions du dossier contenant les paramètres de Grub afin que seul
+l'utilisateur root puisse les lire
+Mise en place un système d'authentification sur l'édition de la séquence de démarrage

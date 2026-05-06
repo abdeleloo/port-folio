@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mode Sombre - Mise en place</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Mode Sombre</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2><i class="bi bi-moon-stars"></i> Mise en place du mode sombre</h2>
+      <p>Intégration d’un thème sombre global avec bascule, sauvegarde des préférences et adaptation des composants.</p>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>Fonctionnalités</h3>
+        <ul>
+          <li>Bouton de basculement accessible sur toutes les pages</li>
+          <li>Détection et suivi des préférences système</li>
+          <li>Sauvegarde du choix dans localStorage</li>
+          <li>Overrides CSS pour cartes, sections claires et formulaires</li>
+        </ul>
+      </div>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>Technique</h3>
+        <div class="technical-specs">
+          <pre>
+JS: setTheme('dark'|'light'), toggleTheme(), loadSavedTheme()
+Attr: html[data-theme="dark"]
+CSS: variables pour fonds, texte, cartes, bordures
+Overrides: pages Projets, Trello, Contact, BTS, À Propos
+          </pre>
+        </div>
+      </div>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>Vérifications</h3>
+        <ul>
+          <li>Bascule manuelle et persistance du thème</li>
+          <li>Suivi automatique des préférences système</li>
+          <li>Contraste lisible sur cartes et sections</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

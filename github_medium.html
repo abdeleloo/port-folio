@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Développement & Rédaction - Abdessamad EL-OUASSAI</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  ## 2. Uniformisation des références CSS Bootstrap Icons vers les fichiers locaux
+  
+  ### Pour les fichiers utilisant actuellement le CDN :
+  
+  **BTS_SIO.html** - Ligne 9 :
+  ```html
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  ```
+</head>
+<body class="platforms-page">
+  
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Abdessamad EL-OUASSAI</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Section Hero -->
+    <section class="platforms-hero">
+      <div class="hero-grid">
+        <div class="github-hero">
+          <img src="assets/img/github-bg.jpg" alt="Code GitHub">
+          <div class="hero-content">
+            <h2>Développement Collaboratif</h2>
+          </div>
+        </div>
+        <div class="medium-hero">
+          <img src="assets/img/medium-bg.jpg" alt="Écriture Medium">
+          <div class="hero-content">
+            <h2>Partage de Connaissances</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Avantages -->
+    <section class="benefits-section">
+      <h3>Pourquoi ces plateformes ?</h3>
+      <div class="benefits-grid">
+        
+        <div class="benefit-card">
+            <i class="bi bi-git"></i>
+            <h4>GitHub pour Développeurs</h4>
+            <p class="benefit-text">
+              GitHub est indispensable pour tout développeur moderne. Cette plateforme permet non seulement de gérer ses projets avec un système de versionning robuste (Git), mais aussi de collaborer efficacement en équipe. Elle sert de portfolio technique visible par tous et facilite la contribution à l'open source.
+            </p>
+            <ul>
+              <li>📁 +5 dépôts publics</li>
+              <li>🤝 2 collaborations</li>
+              <li>⭐ 0 étoiles obtenues</li>
+            </ul>
+          </div>
+          
+          <div class="benefit-card">
+            <i class="bi bi-pen"></i>
+            <h4>Medium pour la Rédaction</h4>
+            <p class="benefit-text">
+              Medium offre une plateforme idéale pour partager ses connaissances techniques. Rédiger des articles permet de consolider ses acquis, de se construire une réputation d'expert et d'élargir son réseau professionnel. C'est aussi un excellent exercice pour améliorer ses compétences rédactionnelles.
+            </p>
+            <ul>
+              <li>📝 1 articles techniques</li>
+              <li>👥 5 abonnés</li>
+              <li>💬 3 commentaires</li>
+            </ul>
+          </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="cta-section">
+      <h3>Mes Profils</h3>
+      <div class="cta-buttons">
+        <a href="https://github.com/abdeleloo" 
+           class="btn github-btn" 
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="bi bi-github"></i> GitHub/abdeleloo
+        </a>
+        <a href="https://medium.com/@elouassai.a" 
+           class="btn medium-btn" 
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="bi bi-medium"></i> Medium/@elouassai.a
+        </a>
+      </div>
+    </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <style>
+    /* Styles généraux */
+    .platforms-page {
+      background: #f8f9fa;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Section Hero */
+    .platforms-hero {
+      margin: 40px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .github-hero, .medium-hero {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .github-hero img, .medium-hero img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: rgb(5, 3, 3);
+    }
+
+    .platform-logo {
+      width: 100px;
+      margin-bottom: 15px;
+    }
+
+    .github-hero .platform-logo {
+      filter: invert(1);
+    }
+
+    /* Section Avantages */
+    .benefits-section {
+      margin: 60px 0;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .benefit-card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .benefit-card i {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .benefit-card ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .benefit-card li {
+      margin: 10px 0;
+      padding: 10px;
+      background: #f8f9fa;
+      border-radius: 5px;
+    }
+
+    /* Section CTA */
+    .cta-section {
+      text-align: center;
+      margin: 50px 0;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .github-btn {
+      background: #24292e;
+      color: white;
+    }
+
+    .medium-btn {
+      background: #00ab6c;
+      color: white;
+    }
+
+    /* Section Téléchargement */
+    .download-section {
+      margin: 40px 0;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .download-section a {
+      color: #2c3e50;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+    }
+    .benefit-text {
+        color: #666;
+         line-height: 1.6;
+        margin: 15px 0;
+        font-size: 0.95em;
+    }
+  </style>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

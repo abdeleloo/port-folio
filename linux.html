@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtualisation - Abdessamad EL-OUASSAI</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="virtualisation-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Virtualisation avancée</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Section Explications Distributions -->
+    <section class="distro-explication">
+      <div class="distro-buttons">
+        <button class="distro-btn active" data-distro="ubuntu">
+          <i class="bi bi-ubuntu"></i> Ubuntu
+        </button>
+        <button class="distro-btn" data-distro="arch">
+          <i class="bi bi-terminal"></i> Arch
+        </button>
+        <button class="distro-btn" data-distro="kali">
+          <i class="bi bi-shield-lock"></i> Kali
+        </button>
+      </div>
+
+      <!-- Contenu des Explications -->
+      <div class="distro-info active" id="ubuntu-info">
+        <h3><i class="bi bi-ubuntu"></i> Ubuntu Server</h3>
+        <div class="info-content">
+          <p><strong>Spécialité :</strong> Serveur polyvalent</p>
+          <ul>
+            <li>Distribution Linux la plus populaire</li>
+            <li>Maintenance à long terme (LTS)</li>
+            <li>Idéal pour les débutants et les serveurs</li>
+            <li>Cycle de sortie prévisible</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="distro-info" id="arch-info">
+        <h3><i class="bi bi-terminal"></i> Arch Linux</h3>
+        <div class="info-content">
+          <p><strong>Spécialité :</strong> Personnalisation extrême</p>
+          <ul>
+            <li>Distribution "Do It Yourself"</li>
+            <li>Système de mise à jour continu (Rolling Release)</li>
+            <li>Documentation exceptionnelle (Wiki Arch)</li>
+            <li>Pour utilisateurs avancés</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="distro-info" id="kali-info">
+        <h3><i class="bi bi-shield-lock"></i> Kali Linux</h3>
+        <div class="info-content">
+          <p><strong>Spécialité :</strong> Sécurité offensive</p>
+          <ul>
+            <li>Distribution dédiée au pentest</li>
+            <li>Inclut 600+ outils de sécurité</li>
+            <li>Environnement préconfiguré</li>
+            <li>Maintenu par Offensive Security</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Configuration VM -->
+    <section class="vm-configuration">
+      <h2><i class="bi bi-gear"></i> Configuration Type</h2>
+      <div class="vm-grid">
+        <div class="vm-card">
+          <img src="assets/img/ubuntu-vm.jpg" alt="Ubuntu VM">
+          <div class="vm-specs">
+            <h4>Ubuntu Server</h4>
+            <ul>
+              <li><i class="bi bi-cpu"></i> 2 vCPU</li>
+              <li><i class="bi bi-memory"></i> 4 Go RAM</li>
+              <li><i class="bi bi-hdd"></i> 20 Go SSD</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="vm-card">
+          <img src="assets/img/arch-vm.jpg" alt="Arch VM">
+          <div class="vm-specs">
+            <h4>Arch Linux</h4>
+            <ul>
+              <li><i class="bi bi-cpu"></i> 2 vCPU</li>
+              <li><i class="bi bi-memory"></i> 2 Go RAM</li>
+              <li><i class="bi bi-hdd"></i> 15 Go SSD</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="vm-card">
+          <img src="assets/img/kali-vm.jpg" alt="Kali VM">
+          <div class="vm-specs">
+            <h4>Kali Linux</h4>
+            <ul>
+              <li><i class="bi bi-cpu"></i> 4 vCPU</li>
+              <li><i class="bi bi-memory"></i> 8 Go RAM</li>
+              <li><i class="bi bi-hdd"></i> 40 Go SSD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <style>
+    /* Styles généraux */
+    .virtualisation-page {
+      background: #f8f9fa;
+    }
+
+    /* Section Explications */
+    .distro-explication {
+      margin: 40px 0;
+    }
+
+    .distro-buttons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .distro-btn {
+      padding: 15px 25px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+    }
+
+    .distro-btn.active {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .distro-btn[data-distro="ubuntu"] {
+      background: #E95420;
+      color: white;
+    }
+
+    .distro-btn[data-distro="arch"] {
+      background: #1793D1;
+      color: white;
+    }
+
+    .distro-btn[data-distro="kali"] {
+      background: #557C94;
+      color: white;
+    }
+
+    .distro-info {
+      display: none;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .distro-info.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .info-content {
+      margin-top: 20px;
+    }
+
+    .info-content ul {
+      padding-left: 20px;
+      color: #444;
+    }
+
+    .info-content li {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    /* Section Configuration VM */
+    .vm-configuration {
+      margin: 50px 0;
+    }
+
+    .vm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .vm-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .vm-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .vm-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .vm-specs {
+      padding: 20px;
+    }
+
+    .vm-specs ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    .vm-specs li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
+      color: #666;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .distro-buttons {
+        flex-direction: column;
+      }
+      
+      .distro-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .vm-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script>
+    // Gestion des boutons d'explication
+    document.querySelectorAll('.distro-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Retire l'active de tous les éléments
+        document.querySelectorAll('.distro-btn, .distro-info').forEach(el => {
+          el.classList.remove('active');
+        });
+
+        // Ajoute l'active aux éléments cliqués
+        button.classList.add('active');
+        const targetId = button.dataset.distro + '-info';
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+  </script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

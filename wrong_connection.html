@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des Connexions - Portfolio</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+
+  <header class="header">
+    <div class="container">
+      <div class="header-brand">
+        <img src="assets/img/image-gestion-utilisateur-front.jpg" alt="Logo Module Sécurité" class="project-logo">
+        <h1 class="logo">Module de Sécurité</h1>
+      </div>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div id="projectCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets/img/wrong_connection_module.jpg" class="d-block w-100" alt="Interface utilisateur">
+            <div class="carousel-caption">
+              <p>Interface de gestion des connexions</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/img/projet2.jpg" class="d-block w-100" alt="PHPMyAdmin">
+            <div class="carousel-caption">
+              <p>Structure de base de données via PHPMyAdmin</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <!-- Section Compétences -->
+      <div class="competences-section">
+        <button class="btn btn-competences" onclick="toggleCompetences()" aria-expanded="false">
+          <i class="fas fa-graduation-cap"></i> Compétences
+        </button>
+        
+        <div id="competencesContent" class="competences-content">
+          <div class="competences-grid">
+            <div class="competence-column">
+              <h4><i class="fas fa-code"></i> Langages Utilisés</h4>
+              <div class="langages-list">
+                <div class="langage-item">
+                  <i class="fab fa-php"></i>
+                  <div>
+                    <h5>PHP</h5>
+                    <ul>
+                      <li>Gestion des sessions utilisateur</li>
+                      <li>Interactions avec MySQL</li>
+                      <li>Sécurisation des formulaires</li>
+                      <li>Programmation orientée objet</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="langage-item">
+                  <i class="fab fa-js"></i>
+                  <div>
+                    <h5>JavaScript</h5>
+                    <ul>
+                      <li>Manipulation dynamique du DOM</li>
+                      <li>Gestion des événements</li>
+                      <li>Requêtes AJAX</li>
+                      <li>Validation en temps réel</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="competence-column">
+              <h4><i class="fas fa-shield-alt"></i> Compétences Acquises</h4>
+              <ul class="competence-list">
+                <li><i class="fas fa-check-circle"></i> Sécurisation des applications web</li>
+                <li><i class="fas fa-check-circle"></i> Gestion des logs de sécurité</li>
+                <li><i class="fas fa-check-circle"></i> Prévention des attaques par force brute</li>
+                <li><i class="fas fa-check-circle"></i> Administration de bases de données MySQL</li>
+                <li><i class="fas fa-check-circle"></i> Développement full-stack sécurisé</li>
+                <li><i class="fas fa-check-circle"></i> Gestion des permissions utilisateurs</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-infos-grid">
+        <div class="code-section">
+          <h3><i class="fas fa-code"></i> Extrait de Code</h3>
+          <div class="code-card">
+            <img src="assets/img/code-gestion-utilisateur.png" alt="Code PHP" class="img-fluid">
+            <div class="code-description">
+              <span class="badge php">PHP</span>
+              <p>Gestion des tentatives de connexion</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-section">
+          <h3><i class="fas fa-sync-alt"></i> Workflow de Déblocage</h3>
+          <div class="process-steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <img src="assets/img/gestion-utlisatuer-front-confirmation.jpg" alt="Confirmation déblocage" class="img-fluid">
+              <p>Confirmation de déblocage</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="technical-specs">
+        <h3><i class="fas fa-cogs"></i> Spécifications Techniques</h3>
+        <div class="specs-grid">
+          <div class="spec-card">
+            <img src="assets/img/projet2.jpg" alt="Base de données" class="img-fluid">
+            <h4>Structure SQL</h4>
+            <pre>
+CREATE TABLE wrong_connection_tbl (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  ip VARCHAR(45) NOT NULL,
+  attempt_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+  error_type VARCHAR(50) NOT NULL,
+  user_id INT,
+  INDEX idx_ip (ip),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <style>
+  .btn-competences {
+    background: #28a745;
+    color: white;
+    padding: 15px 30px;
+    margin: 30px 0;
+    border-radius: 25px;
+    transition: all 0.3s;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+  }
+
+  .btn-competences:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+    background: #218838;
+  }
+
+  .competences-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+
+  .competences-content.visible {
+    max-height: 1000px;
+  }
+
+  .competences-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 30px;
+  }
+
+  .langages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .langage-item {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  }
+
+  .langage-item i {
+    font-size: 2.5em;
+    color: #28a745;
+    margin-top: 5px;
+  }
+
+  .competence-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 15px;
+  }
+
+  .competence-list li {
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s;
+  }
+
+  .competence-list li:hover {
+    transform: translateX(10px);
+  }
+
+  @media (max-width: 768px) {
+    .competences-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .langage-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .btn-competences {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  </style>
+
+  <script>
+  function toggleCompetences() {
+    const content = document.getElementById('competencesContent');
+    content.classList.toggle('visible');
+    const btn = document.querySelector('.btn-competences');
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !isExpanded);
+  }
+
+  document.querySelector('.btn-competences').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') toggleCompetences();
+  });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Règles de remise – IPTwins</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Règles de remise</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2><i class="bi bi-percent"></i> Automatisation des remises générales (IPTwins)</h2>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>À propos</h3>
+        <ul>
+          <li>Étudiant en informatique, je conçois et améliore des applications web.</li>
+          <li>Approche orientée qualité : analyse, sécurité, tests, documentation.</li>
+        </ul>
+      </div>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>Objectif du portfolio</h3>
+        <ul>
+          <li>Montrer des projets concrets, les choix techniques, et la méthodologie.</li>
+        </ul>
+      </div>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>Projet principal</h3>
+        <p>Automatiser l’application de remises sur des catégories d’extensions (ex: nouveaux gTLD) avec garde-fou sur les prix.</p>
+        <div class="technical-specs">
+          <h4>Fichiers clés</h4>
+          <ul>
+            <li><code>scripts/cron_remises_generales.php</code> orchestrateur CRON (CLI/Web, sécurité IP, logs, reporting)</li>
+            <li><code>include/remises_generales_automation.php</code> classe métier (désactivation/activation, synchronisation, nettoyage, rapport)</li>
+            <li><code>sql/groupe_remise_generale.sql</code> structure et migration de la table, avec commentaires</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>Ce que j’ai fait</h3>
+        <ul>
+          <li>Analyse de l’existant et mise en conformité avec les conventions du système</li>
+          <li>Sécurisation: mise à jour de la protection par IP pour l’exécution web</li>
+          <li>Robustesse: gestion des erreurs améliorée (try/catch, codes sortie 0/1)</li>
+          <li>Journalisation: utilisation et validation de <code>tprint</code>/<code>preprint</code></li>
+          <li>Cohérence métier: correctif sur le paramètre de rétention transmis au nettoyage</li>
+          <li>Documentation SQL: commentaires explicatifs sur champs et index</li>
+        </ul>
+      </div>
+
+      <div class="project-infos-grid">
+        <div class="code-section">
+          <h3><i class="bi bi-file-code"></i> Captures code</h3>
+          <div class="code-card">
+            <img src="assets/img/remises-automation-code.png" alt="Code automation" class="img-fluid">
+            <div class="code-description">Extraits des scripts et de la classe métier</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
+          </div>
+        </div>
+        <div class="process-section">
+          <h3><i class="bi bi-window"></i> Captures affichage</h3>
+          <div class="code-card">
+            <img src="assets/img/remises-automation-ui.png" alt="Affichage et reporting" class="img-fluid">
+            <div class="code-description">Affichage, reporting, et traces d’exécution</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>Comment ça fonctionne</h3>
+        <ul>
+          <li>Initialisation: fermeture session, timeouts, mémoire, headers, includes requis</li>
+          <li>Exécution: tâches de désactivation, activation, synchronisation, nettoyage</li>
+          <li>Nettoyage: suppression des remises inactives au-delà d’un nombre de jours configurable</li>
+          <li>Logs/rapport: temps d’exécution, détails, option d’envoi par email</li>
+        </ul>
+      </div>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>Points techniques clés</h3>
+        <ul>
+          <li>Conventions d’initialisation unifiées (<code>session_write_close</code>, <code>set_time_limit</code>, <code>ini_set</code>)</li>
+          <li>Sécurité IP alignée avec les autres robots</li>
+          <li>Paramétrage de rétention ajouté à <code>executerToutesLesTaches()</code> et transmis au nettoyage</li>
+          <li>Table SQL commentée: compréhension des champs, index et migrations</li>
+        </ul>
+      </div>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>Compétences démontrées</h3>
+        <ul>
+          <li>Lecture et refactor de code PHP dans un projet existant</li>
+          <li>Sécurisation (IP whitelist) et gestion d’erreurs</li>
+          <li>Conception SQL et documentation technique</li>
+          <li>Respect des conventions et intégration sans régression</li>
+        </ul>
+      </div>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>Comment tester</h3>
+        <div class="technical-specs">
+          <h4>CLI</h4>
+          <pre><code>php scripts/cron_remises_generales.php</code></pre>
+          <h4>Web (IP protégée)</h4>
+          <p>Exécuter via URL protégée et vérifier les IP autorisées</p>
+          <h4>Logs</h4>
+          <p>Consulter temps d’exécution et étapes réalisées</p>
+        </div>
+      </div>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>Résultats et impact</h3>
+        <ul>
+          <li>Automatisation fiable et traçable</li>
+          <li>Réduction du temps de gestion manuelle des remises</li>
+          <li>Documentation prête pour maintenance et audits</li>
+        </ul>
+      </div>
+
+      <div class="project-item" style="margin-top:20px;">
+        <h3>Prochaines étapes</h3>
+        <ul>
+          <li>Ajouter des tests automatisés pour valider les règles de remise</li>
+          <li>Étendre l’interface d’administration pour gérer les remises générales</li>
+        </ul>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

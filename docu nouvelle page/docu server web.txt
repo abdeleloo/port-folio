@@ -1,0 +1,124 @@
+## Documentation du Serveur Ubuntu pour Portfolio Web
+
+### 🚀 Objectif
+
+Mettre en place un serveur sécurisé Ubuntu pour héberger un site web personnel (portfolio), avec Apache, PHP, et un formulaire de contact.
+
+---
+
+### 📁 Structure générale
+
+* Utilisateur : `abde`
+* Réseau local : `192.168.1.56`
+* Accès SSH depuis VS Code avec mot de passe uniquement (pas de clé publique)
+* Accès SSH uniquement depuis le réseau local
+* Pare-feu (UFW) configuré et actif
+
+---
+
+### 🔒 1. Sécurisation du serveur
+
+#### ✅ Pare-feu (UFW)
+
+* Activé : `sudo ufw enable`
+* Ports ouverts :
+
+  * 22 (SSH)
+  * 80 (HTTP)
+  * 443 (HTTPS)
+* Limitation brute force sur SSH :
+
+  ```bash
+  sudo ufw limit 22/tcp
+  ```
+
+#### ⛔ Fail2ban
+
+* Installé et activé pour `sshd`
+* Statut :
+
+  ```bash
+  sudo fail2ban-client status sshd
+  ```
+
+#### 🔐 SSH
+
+* Accès SSH restreint à l'utilisateur `abde`
+* Connexion root désactivée :
+
+  ```bash
+  /etc/ssh/sshd_config
+  PermitRootLogin no
+  ```
+* Connexion uniquement locale (pas de NAT vers l'extérieur)
+
+#### ⚠️ ModSecurity
+
+* Installé : `libapache2-mod-security2`
+* Activé dans Apache
+* Fichier de configuration : `/etc/modsecurity/modsecurity.conf`
+* Règles CRS copiées dans `/etc/modsecurity/crs/`
+
+---
+
+### 📚 2. Configuration Apache
+
+#### Modules activés
+
+```bash
+sudo a2enmod headers
+sudo a2enmod rewrite
+sudo a2enmod ssl
+sudo a2enmod security2
+```
+
+#### Virtual Host `portfolio.local`
+
+* Fichier : `/etc/apache2/sites-available/portfolio.conf`
+* Chemin du site : `/var/www/portfolio`
+* Activation :
+
+  ```bash
+  sudo a2ensite portfolio.conf
+  sudo systemctl reload apache2
+  ```
+
+#### DNS local sur ThinkPad
+
+* Entrée ajoutée dans `C:\Windows\System32\drivers\etc\hosts`
+
+  ```
+  192.168.1.56 portfolio.local
+  ```
+
+---
+
+### 🌐 3. Déploiement du site
+
+* Site HTML/CSS/JS copié dans `/var/www/portfolio`
+* Droits :
+
+  ```bash
+  sudo chown -R abde:www-data /var/www/portfolio
+  sudo chmod -R 755 /var/www/portfolio
+  ```
+
+---
+
+### 📊 Suivi & maintenance
+
+* Accès SSH possible via VS Code avec Remote SSH
+* Le serveur peut rester opérationnel même capot fermé (power settings modifiés)
+
+---
+
+### ✅ Prochaine étape
+
+* Formulaire de contact avec envoi de mail (configuration SMTP ou serveur mail local)
+* Certificat HTTPS (Let’s Encrypt ou auto-signé)
+* Optimisation des logs Apache
+* Analyse des requêtes entrantes (fail2ban + logrotate)
+
+---
+
+*Mis en place par Abde 🤝 avec accompagnement technique*

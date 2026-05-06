@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuration Apache2 - Abdessamad EL-OUASSAI</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="apache-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Configuration Apache2</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="documentation-section">
+      <div class="doc-header">
+        <img src="assets/img/apache-config.jpg" alt="Configuration Apache" class="doc-hero-img">
+        <div class="doc-actions">
+          <a href="assets/docs/Documentation_Apache2_Abdessamad.pdf" download class="btn">
+            <i class="bi bi-file-pdf"></i> Télécharger le PDF
+          </a>
+        </div>
+      </div>
+
+      <!-- Prérequis -->
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h2><i class="bi bi-list-check"></i> Prérequis</h2>
+          <div class="requirements-grid">
+            <div class="requirement-card">
+              <i class="bi bi-ubuntu"></i>
+              <h3>Ubuntu 24.04 LTS</h3>
+              <p>Serveur ou machine virtuelle</p>
+            </div>
+            <div class="requirement-card">
+              <i class="bi bi-cpu"></i>
+              <h3>Resources matérielles</h3>
+              <ul>
+                <li>1 cœur CPU</li>
+                <li>2 Go RAM (4 Go recommandés)</li>
+                <li>20 Go stockage</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Installation -->
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h2><i class="bi bi-terminal"></i> Installation</h2>
+          <div class="code-block">
+            <code class="bash">
+              sudo apt update && sudo apt upgrade -y<br>
+              sudo apt install apache2 -y<br>
+              sudo systemctl status apache2
+            </code>
+          </div>
+          <div class="terminal-output">
+            <span class="prompt">$</span> Service apache2: active (running)
+          </div>
+        </div>
+      </article>
+
+      <!-- Configuration Virtual Hosts -->
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h2><i class="bi bi-files"></i> Virtual Hosts</h2>
+          <div class="config-grid">
+            <div class="config-card">
+              <h3>Structure des répertoires</h3>
+              <pre>
+/var/www/
+├── site1.com/
+│   └── public_html/
+└── site2.com/
+    └── public_html/</pre>
+            </div>
+            <div class="config-card">
+              <h3>Fichier de configuration</h3>
+              <code class="apache-config">
+&lt;VirtualHost *:80&gt;
+    ServerAdmin admin@site1.com
+    ServerName site1.com
+    DocumentRoot /var/www/site1.com/public_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;
+              </code>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Validation -->
+      <article class="validation-step">
+        <h2><i class="bi bi-check-circle"></i> Validation finale</h2>
+        <div class="validation-grid">
+          <div class="test-card">
+            <i class="bi bi-browser-chrome"></i>
+            <p>http://site1.com</p>
+            <div class="test-result success">200 OK</div>
+          </div>
+          <div class="test-card">
+            <i class="bi bi-file-text"></i>
+            <p>Vérification des logs</p>
+            <code>sudo tail -f /var/log/apache2/error.log</code>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <style>
+    /* Styles spécifiques Apache */
+    .apache-page {
+      background: #f8f9fa;
+    }
+
+    .doc-header {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .doc-hero-img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .doc-actions {
+      margin: 20px 0;
+    }
+
+    .doc-step {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 30px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 20px;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: #28a745;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      flex-shrink: 0;
+    }
+
+    .requirements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .requirement-card {
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .requirement-card i {
+      font-size: 2em;
+      color: #28a745;
+      margin-bottom: 10px;
+    }
+
+    .code-block {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+
+    .config-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .config-card {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .validation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .test-card {
+      text-align: center;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .test-result {
+      padding: 5px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .success {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    @media (max-width: 768px) {
+      .config-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .doc-step {
+        flex-direction: column;
+      }
+    }
+  </style>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

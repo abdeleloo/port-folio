@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serveur Web Sécurisé - Abdessamad EL-OUASSAI</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="apache-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Serveur Web Sécurisé</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="documentation-section">
+      <div class="doc-header">
+        <img src="assets/img/server-security.jpg" alt="Serveur Web Sécurisé" class="doc-hero-img">
+        <div class="doc-actions">
+          <a href="docu nouvelle page/docu server web.txt" download class="btn">
+            <i class="bi bi-file-text"></i> Télécharger la Documentation
+          </a>
+        </div>
+      </div>
+
+      <!-- Introduction -->
+      <article class="doc-step">
+        <div class="step-number">🚀</div>
+        <div class="step-content">
+          <h2><i class="bi bi-bullseye"></i> Objectif du Projet</h2>
+          <p>Mise en place d'un serveur Ubuntu sécurisé pour héberger un site web personnel (portfolio) avec Apache, PHP, et un formulaire de contact. Ce projet démontre les compétences en administration système, sécurisation d'infrastructure et déploiement web.</p>
+          
+          <div class="technical-specs">
+            <h3>Spécifications Techniques</h3>
+            <ul>
+              <li><strong>Utilisateur :</strong> abde</li>
+              <li><strong>Réseau local :</strong> 192.168.1.56</li>
+              <li><strong>Accès SSH :</strong> VS Code avec authentification par mot de passe</li>
+              <li><strong>Restriction :</strong> Accès SSH uniquement depuis le réseau local</li>
+              <li><strong>Sécurité :</strong> Pare-feu UFW configuré et actif</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Architecture et Diagrammes -->
+      <article class="doc-step">
+        <div class="step-number">📊</div>
+        <div class="step-content">
+          <h2><i class="bi bi-diagram-3"></i> Architecture du Système</h2>
+          
+          <div class="architecture-section">
+            <h3>Schéma Réseau</h3>
+            <div class="diagram-container">
+              <img src="assets/img/schem_serveur.png" alt="Schéma réseau - Topologie Client → Routeur → Serveur Ubuntu" class="diagram-img">
+              <p class="diagram-caption">Topologie réseau : Client → Routeur → Serveur Ubuntu (192.168.1.56)</p>
+            </div>
+            
+            <h3>Architecture Logicielle</h3>
+            <div class="diagram-container">
+              <img src="assets/img/Architecture_logicielle.png" alt="Architecture logicielle - Stack technique Apache, PHP, ModSecurity" class="diagram-img">
+              <p class="diagram-caption">Stack technique : Apache2 → PHP → ModSecurity → UFW/Fail2ban</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sécurisation -->
+      <article class="doc-step">
+        <div class="step-number">🔒</div>
+        <div class="step-content">
+          <h2><i class="bi bi-shield-check"></i> Sécurisation du Serveur</h2>
+          
+          <div class="security-grid">
+            <div class="security-card">
+              <i class="bi bi-fire"></i>
+              <h3>Pare-feu UFW</h3>
+              <ul>
+                <li>Activé avec <code>sudo ufw enable</code></li>
+                <li>Ports ouverts : 22 (SSH), 80 (HTTP), 443 (HTTPS)</li>
+                <li>Protection brute force SSH : <code>sudo ufw limit 22/tcp</code></li>
+              </ul>
+            </div>
+            
+            <div class="security-card">
+              <i class="bi bi-ban"></i>
+              <h3>Fail2ban</h3>
+              <ul>
+                <li>Installé et activé pour sshd</li>
+                <li>Surveillance des tentatives de connexion</li>
+                <li>Vérification : <code>sudo fail2ban-client status sshd</code></li>
+              </ul>
+            </div>
+            
+            <div class="security-card">
+              <i class="bi bi-key"></i>
+              <h3>Configuration SSH</h3>
+              <ul>
+                <li>Accès restreint à l'utilisateur abde</li>
+                <li>Connexion root désactivée</li>
+                <li>Fichier : <code>/etc/ssh/sshd_config</code></li>
+                <li>Paramètre : <code>PermitRootLogin no</code></li>
+              </ul>
+            </div>
+            
+            <div class="security-card">
+              <i class="bi bi-shield-exclamation"></i>
+              <h3>ModSecurity</h3>
+              <ul>
+                <li>Module : <code>libapache2-mod-security2</code></li>
+                <li>Configuration : <code>/etc/modsecurity/modsecurity.conf</code></li>
+                <li>Règles CRS dans <code>/etc/modsecurity/crs/</code></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Configuration Apache -->
+      <article class="doc-step">
+        <div class="step-number">📚</div>
+        <div class="step-content">
+          <h2><i class="bi bi-server"></i> Configuration Apache</h2>
+          
+          <h3>Modules Activés</h3>
+          <pre><code>sudo a2enmod headers
+sudo a2enmod rewrite
+sudo a2enmod ssl
+sudo a2enmod security2</code></pre>
+          
+          <h3>Virtual Host portfolio.local</h3>
+          <div class="config-details">
+            <ul>
+              <li><strong>Fichier :</strong> <code>/etc/apache2/sites-available/portfolio.conf</code></li>
+              <li><strong>Chemin du site :</strong> <code>/var/www/portfolio</code></li>
+              <li><strong>Activation :</strong></li>
+            </ul>
+            <pre><code>sudo a2ensite portfolio.conf
+sudo systemctl reload apache2</code></pre>
+          </div>
+          
+          <h3>DNS Local</h3>
+          <p>Entrée ajoutée dans <code>C:\Windows\System32\drivers\etc\hosts</code> :</p>
+          <pre><code>192.168.1.56 portfolio.local</code></pre>
+        </div>
+      </article>
+
+      <!-- Déploiement -->
+      <article class="doc-step">
+        <div class="step-number">🌐</div>
+        <div class="step-content">
+          <h2><i class="bi bi-cloud-upload"></i> Déploiement du Site</h2>
+          
+          <h3>Installation des Fichiers</h3>
+          <p>Site HTML/CSS/JS copié dans <code>/var/www/portfolio</code></p>
+          
+          <h3>Configuration des Droits</h3>
+          <pre><code>sudo chown -R abde:www-data /var/www/portfolio
+sudo chmod -R 755 /var/www/portfolio</code></pre>
+          
+          <div class="deployment-info">
+            <i class="bi bi-info-circle"></i>
+            <p>Les permissions permettent à l'utilisateur abde de modifier les fichiers tout en donnant au serveur web les droits de lecture nécessaires.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Maintenance -->
+      <article class="doc-step">
+        <div class="step-number">📊</div>
+        <div class="step-content">
+          <h2><i class="bi bi-tools"></i> Suivi & Maintenance</h2>
+          
+          <div class="maintenance-grid">
+            <div class="maintenance-card">
+              <i class="bi bi-terminal"></i>
+              <h3>Accès SSH</h3>
+              <p>Connexion possible via VS Code avec Remote SSH</p>
+            </div>
+            
+            <div class="maintenance-card">
+              <i class="bi bi-power"></i>
+              <h3>Fonctionnement Continu</h3>
+              <p>Le serveur reste opérationnel même capot fermé (power settings modifiés)</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Monitoring et Logs -->
+      <article class="doc-step">
+        <div class="step-number">📈</div>
+        <div class="step-content">
+          <h2><i class="bi bi-activity"></i> Monitoring et Surveillance</h2>
+          
+          <div class="monitoring-section">
+            <h3>Commandes de Surveillance</h3>
+            <div class="command-grid">
+              <div class="command-card">
+                <h4>Logs Apache</h4>
+                <pre><code>sudo tail -f /var/log/apache2/access.log
+sudo tail -f /var/log/apache2/error.log</code></pre>
+              </div>
+              
+              <div class="command-card">
+                <h4>Status Fail2ban</h4>
+                <pre><code>sudo fail2ban-client status
+sudo fail2ban-client status sshd</code></pre>
+              </div>
+              
+              <div class="command-card">
+                <h4>Firewall UFW</h4>
+                <pre><code>sudo ufw status verbose
+sudo ufw show listening</code></pre>
+              </div>
+              
+              <div class="command-card">
+                <h4>Processus Apache</h4>
+                <pre><code>sudo systemctl status apache2
+sudo apache2ctl status</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Prochaines étapes -->
+      <article class="doc-step">
+        <div class="step-number">✅</div>
+        <div class="step-content">
+          <h2><i class="bi bi-list-task"></i> Prochaines Étapes</h2>
+          
+          <div class="next-steps">
+            <div class="step-item">
+              <i class="bi bi-envelope"></i>
+              <h3>Formulaire de Contact</h3>
+              <p>Configuration SMTP ou serveur mail local pour l'envoi de mails</p>
+            </div>
+            
+            <div class="step-item">
+              <i class="bi bi-shield-lock"></i>
+              <h3>Certificat HTTPS</h3>
+              <p>Mise en place de Let's Encrypt ou certificat auto-signé</p>
+            </div>
+            
+            <div class="step-item">
+              <i class="bi bi-graph-up"></i>
+              <h3>Tests de Performance</h3>
+              <p>Benchmarks de charge et optimisation des performances</p>
+            </div>
+            
+            <div class="step-item">
+              <i class="bi bi-bug"></i>
+              <h3>Tests de Sécurité</h3>
+              <p>Audit de sécurité avec Nmap, Nikto et tests de pénétration</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Technologies utilisées -->
+      <article class="doc-step">
+        <div class="step-number">🛠️</div>
+        <div class="step-content">
+          <h2><i class="bi bi-gear"></i> Technologies Utilisées</h2>
+          
+          <div class="tech-stack">
+            <div class="tech-category">
+              <h3>Système d'Exploitation</h3>
+              <div class="tech-tags">
+                <span class="tech-tag">Ubuntu 24.04 LTS</span>
+              </div>
+            </div>
+            
+            <div class="tech-category">
+              <h3>Serveur Web</h3>
+              <div class="tech-tags">
+                <span class="tech-tag">Apache2</span>
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">ModSecurity</span>
+              </div>
+            </div>
+            
+            <div class="tech-category">
+              <h3>Sécurité</h3>
+              <div class="tech-tags">
+                <span class="tech-tag">UFW Firewall</span>
+                <span class="tech-tag">Fail2ban</span>
+                <span class="tech-tag">SSH Hardening</span>
+              </div>
+            </div>
+            
+            <div class="tech-category">
+              <h3>Outils de Développement</h3>
+              <div class="tech-tags">
+                <span class="tech-tag">VS Code Remote SSH</span>
+                <span class="tech-tag">Git</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Abdessamad EL-OUASSAI. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

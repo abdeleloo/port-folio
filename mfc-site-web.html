@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Web MFC – Portfolio</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Site Web MFC</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container documentation-section">
+    <section class="section">
+
+      <!-- EN-TÊTE PROJET -->
+      <div class="doc-header" style="margin-bottom:40px;">
+        <span class="badge" style="background:#f7df1e;color:#333;padding:4px 12px;border-radius:12px;font-size:.85em;">JavaScript</span>
+        <span class="badge" style="background:#E44D26;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">HTML/CSS</span>
+        <span class="badge" style="background:#e3342f;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Java</span>
+        <span class="badge" style="background:#0064a4;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">SQL</span>
+        <span class="badge" style="background:#2c3e50;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Formation</span>
+        <h2 style="margin-top:16px;"><i class="bi bi-globe"></i> Site Web MFC</h2>
+        <p style="color:#6c757d;font-size:1.05em;">Période : Septembre 2025 – Décembre 2025 &nbsp;|&nbsp; Contexte : Formation (école)</p>
+        <p>
+          Développement d'un site web pour l'entreprise fictive MFC. Ce projet couvre l'ensemble du
+          cycle de développement web : conception, front-end, back-end, base de données et déploiement,
+          dans un contexte de travail collaboratif avec Git.
+        </p>
+      </div>
+
+      <!-- CONTEXTE ET BESOIN -->
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Contexte et analyse du besoin</h3>
+          <p>
+            L'entreprise fictive MFC avait besoin d'un site web vitrine et fonctionnel pour
+            présenter ses services et gérer ses données clients. Le projet a nécessité une
+            phase d'analyse préalable pour définir les fonctionnalités et l'architecture.
+          </p>
+          <ul>
+            <li>Rédaction d'un cahier des charges fonctionnel</li>
+            <li>Conception des maquettes (wireframes)</li>
+            <li>Modélisation de la base de données (MCD / MLD)</li>
+            <li>Répartition des tâches et planification (Trello / Git)</li>
+          </ul>
+          <!-- EMPLACEMENT IMAGE MAQUETTE -->
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Maquette ou wireframe du site<br>
+              <em>(ex : assets/img/mfc-site-maquette.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- ARCHITECTURE TECHNIQUE -->
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Architecture technique</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px;">
+            <div style="background:#f8f9fa;border-radius:8px;padding:20px;">
+              <h4><i class="bi bi-laptop" style="color:#28a745;"></i> Front-end</h4>
+              <ul>
+                <li>HTML5 / CSS3 (responsive design)</li>
+                <li>JavaScript (interactions dynamiques)</li>
+                <li>Validation des formulaires côté client</li>
+              </ul>
+            </div>
+            <div style="background:#f8f9fa;border-radius:8px;padding:20px;">
+              <h4><i class="bi bi-server" style="color:#28a745;"></i> Back-end</h4>
+              <ul>
+                <li>Java (servlets / Spring Boot)</li>
+                <li>API REST (échanges JSON)</li>
+                <li>Base de données MySQL</li>
+              </ul>
+            </div>
+          </div>
+          <!-- EMPLACEMENT SCHEMA ARCHITECTURE -->
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:20px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Schéma d'architecture client-serveur<br>
+              <em>(ex : assets/img/mfc-site-architecture.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- DÉVELOPPEMENT FRONT-END -->
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Développement front-end</h3>
+          <p>Réalisation de l'interface utilisateur responsive, accessible sur mobile et desktop.</p>
+
+          <h4 style="margin-top:20px;"><i class="bi bi-code-slash"></i> Extrait JavaScript – Requête AJAX vers l'API</h4>
+          <pre style="background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;font-size:.9em;overflow-x:auto;"><code>// Chargement dynamique des données depuis l'API Java
+async function loadData(endpoint) {
+  try {
+    const response = await fetch(`/api/${endpoint}`);
+    if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
+    const data = await response.json();
+    renderTable(data);
+  } catch (error) {
+    showAlert('Impossible de charger les données.', 'error');
+    console.error(error);
+  }
+}
+
+// Affichage dynamique dans le tableau HTML
+function renderTable(data) {
+  const tbody = document.querySelector('#dataTable tbody');
+  tbody.innerHTML = data.map(item => `
+    &lt;tr&gt;
+      &lt;td&gt;${item.id}&lt;/td&gt;
+      &lt;td&gt;${item.nom}&lt;/td&gt;
+      &lt;td&gt;${item.valeur}&lt;/td&gt;
+    &lt;/tr&gt;
+  `).join('');
+}</code></pre>
+
+          <!-- EMPLACEMENT CAPTURE INTERFACE -->
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Capture d'écran du site (page d'accueil, tableau de données)<br>
+              <em>(ex : assets/img/mfc-site-home.png, assets/img/mfc-site-tableau.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- BASE DE DONNÉES -->
+      <article class="doc-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Base de données SQL</h3>
+          <p>Conception et implémentation de la base de données relationnelle.</p>
+          <pre style="background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;font-size:.9em;overflow-x:auto;"><code>-- Structure principale de la base MFC
+CREATE TABLE clients (
+    id       INT PRIMARY KEY AUTO_INCREMENT,
+    nom      VARCHAR(100) NOT NULL,
+    email    VARCHAR(150) UNIQUE NOT NULL,
+    tel      VARCHAR(20),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE commandes (
+    id         INT PRIMARY KEY AUTO_INCREMENT,
+    client_id  INT NOT NULL,
+    montant    DECIMAL(10,2) NOT NULL,
+    statut     ENUM('en_cours','validee','annulee') DEFAULT 'en_cours',
+    date_cmd   DATE NOT NULL,
+    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE
+);</code></pre>
+          <!-- EMPLACEMENT IMAGE BDD -->
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> MCD ou capture PhpMyAdmin / MySQL Workbench<br>
+              <em>(ex : assets/img/mfc-site-bdd.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- BILAN -->
+      <article class="doc-step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Bilan et compétences acquises</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div>
+              <h4 style="color:#28a745;"><i class="bi bi-check2-all"></i> Points positifs</h4>
+              <ul>
+                <li>Maîtrise du cycle complet de développement web</li>
+                <li>Communication front-end / back-end via API REST</li>
+                <li>Gestion de version Git en équipe</li>
+                <li>Conception BDD relationnelle</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color:#e74c3c;"><i class="bi bi-exclamation-circle"></i> Axes d'amélioration</h4>
+              <ul>
+                <li>Sécurisation des endpoints API</li>
+                <li>Tests d'intégration à approfondir</li>
+                <li>Performance des requêtes (index SQL)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:24px;padding:20px;background:#e8f5e9;border-radius:8px;border-left:4px solid #28a745;">
+            <h4><i class="bi bi-mortarboard"></i> Compétences BTS SIO couvertes</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C1 – Concevoir une solution applicative</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C2 – Développer les accès aux données</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C3 – Développer la présentation</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C4 – Déployer une solution</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C5 – Tester une solution</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C7 – Documenter</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Abdessamad EL-OUASSAI – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

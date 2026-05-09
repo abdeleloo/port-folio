@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rectification Affichage Facturation – Portfolio</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Rectification – Détails de Facturation</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container documentation-section">
+    <section class="section">
+
+      <div class="doc-header" style="margin-bottom:40px;">
+        <span class="badge" style="background:#f7df1e;color:#333;padding:4px 12px;border-radius:12px;font-size:.85em;">JavaScript</span>
+        <span class="badge" style="background:#E44D26;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">HTML/CSS</span>
+        <span class="badge" style="background:#8892bf;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">PHP</span>
+        <span class="badge" style="background:#f57c00;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Entreprise – IPTwins</span>
+        <h2 style="margin-top:16px;"><i class="bi bi-receipt-cutoff"></i> Rectification du comportement d'affichage des détails de facturation</h2>
+        <p style="color:#6c757d;font-size:1.05em;">Période : Janvier 2026 – Février 2026 &nbsp;|&nbsp; Contexte : Alternance – IP Twins</p>
+        <p>
+          Un bug affectait le bouton dédié à l'affichage des détails de facturation dans
+          l'application interne d'IP Twins. Le comportement était incohérent : les données
+          ne s'affichaient pas correctement selon les cas, perturbant le travail des équipes
+          de gestion.
+        </p>
+      </div>
+
+      <!-- IDENTIFICATION DU BUG -->
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Identification et analyse du problème</h3>
+          <p>
+            Le problème a été remonté par un utilisateur interne : en cliquant sur le bouton
+            "Voir les détails" d'une facture, le panneau de détails s'affichait parfois vide,
+            parfois avec les données d'une facture précédente.
+          </p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px;">
+            <div style="background:#fff3cd;border-radius:8px;padding:20px;border-left:4px solid #ffc107;">
+              <h4><i class="bi bi-bug" style="color:#e67e22;"></i> Symptômes observés</h4>
+              <ul>
+                <li>Panneau de détails vide au premier clic</li>
+                <li>Données d'une précédente facture persistantes</li>
+                <li>Comportement aléatoire selon la rapidité du clic</li>
+                <li>Aucune erreur visible dans la console navigateur</li>
+              </ul>
+            </div>
+            <div style="background:#f8d7da;border-radius:8px;padding:20px;border-left:4px solid #e74c3c;">
+              <h4><i class="bi bi-search" style="color:#e74c3c;"></i> Cause identifiée</h4>
+              <ul>
+                <li>Requête AJAX asynchrone non attendue (pas de gestion de la promesse)</li>
+                <li>Le DOM était mis à jour avant la réponse du serveur</li>
+                <li>Absence de réinitialisation des données entre deux clics</li>
+                <li>Event listener dupliqué sur certains boutons</li>
+              </ul>
+            </div>
+          </div>
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Capture du bug (panneau vide ou données incorrectes)<br>
+              <em>(ex : assets/img/facturation-bug.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- CORRECTION -->
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Correction du code</h3>
+          <p>Trois corrections ont été apportées pour résoudre le comportement erratique :</p>
+
+          <h4 style="margin-top:20px;"><i class="bi bi-code-slash"></i> Avant – Code problématique</h4>
+          <pre style="background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;font-size:.9em;overflow-x:auto;"><code>// ❌ AVANT : mise à jour du DOM avant la réponse
+function showDetails(factureId) {
+  updatePanel({}); // réinitialisation immédiate mais DOM déjà peuplé
+  fetch(`/api/factures/${factureId}`)
+    .then(r => r.json())
+    .then(data => updatePanel(data));
+  // problème : event listener ajouté plusieurs fois
+  btn.addEventListener('click', () => showDetails(id));
+}</code></pre>
+
+          <h4 style="margin-top:20px;"><i class="bi bi-code-slash"></i> Après – Code corrigé</h4>
+          <pre style="background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;font-size:.9em;overflow-x:auto;"><code>// ✅ APRÈS : async/await + loader + event listener unique
+async function showDetails(factureId) {
+  // Réinitialiser le panneau et afficher un loader
+  resetPanel();
+  showLoader(true);
+
+  try {
+    const response = await fetch(`/api/factures/${factureId}`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    updatePanel(data);
+  } catch (err) {
+    showError('Impossible de charger les détails.');
+    console.error(err);
+  } finally {
+    showLoader(false);
+  }
+}
+
+// Event listener unique avec délégation d'événement
+document.querySelector('#facturesContainer').addEventListener('click', e => {
+  const btn = e.target.closest('[data-facture-id]');
+  if (btn) showDetails(btn.dataset.factureId);
+});</code></pre>
+
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Capture de l'interface corrigée (panneau bien rempli)<br>
+              <em>(ex : assets/img/facturation-corrige.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- TESTS DE VALIDATION -->
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Tests de validation</h3>
+          <ul>
+            <li>Test de clics rapides successifs → plus de données résiduelles</li>
+            <li>Test avec connexion lente simulée (DevTools > Slow 3G) → loader affiché correctement</li>
+            <li>Test de non-régression sur les autres fonctionnalités de la page</li>
+            <li>Validation par l'utilisateur final après correction</li>
+          </ul>
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Capture DevTools (onglet Network, requêtes AJAX) ou retour de validation<br>
+              <em>(ex : assets/img/facturation-tests.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- BILAN -->
+      <article class="doc-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Bilan et compétences acquises</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div>
+              <h4 style="color:#28a745;"><i class="bi bi-check2-all"></i> Points positifs</h4>
+              <ul>
+                <li>Maîtrise du débogage JavaScript asynchrone</li>
+                <li>Bonne compréhension de l'event delegation</li>
+                <li>Amélioration de l'UX (loader, gestion d'erreur)</li>
+                <li>Correction validée et déployée en production</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color:#e74c3c;"><i class="bi bi-exclamation-circle"></i> Axes d'amélioration</h4>
+              <ul>
+                <li>Mettre en place des tests automatisés pour éviter les régressions</li>
+                <li>Documenter le comportement attendu dans la base de connaissance</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:24px;padding:20px;background:#e8f5e9;border-radius:8px;border-left:4px solid #28a745;">
+            <h4><i class="bi bi-mortarboard"></i> Compétences BTS SIO couvertes</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C3 – Développer la présentation</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C5 – Tester une solution</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C6 – Maintenir / faire évoluer</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C7 – Documenter</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Abdessamad EL-OUASSAI – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

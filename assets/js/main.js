@@ -218,7 +218,8 @@ function initCategoryFilter() {
   const container = document.querySelector('.projets-grid');
   const cards = container ? Array.from(container.querySelectorAll('.projet-card')) : [];
   if (!filters.length || !cards.length || !container) return;
-  const original = cards.slice();
+  // Exclure les projets personnels (masqués par CSS)
+  const original = cards.filter(c => c.dataset.category !== 'personnel');
   filters.forEach(btn => {
     btn.addEventListener('click', () => {
       const wasActive = btn.classList.contains('active');

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application de Gestion MFC – Portfolio</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Application de Gestion MFC</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container documentation-section">
+    <section class="section">
+
+      <!-- EN-TÊTE PROJET -->
+      <div class="doc-header" style="margin-bottom:40px;">
+        <span class="badge" style="background:#e3342f;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Java</span>
+        <span class="badge" style="background:#f6993f;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Git</span>
+        <span class="badge" style="background:#38c172;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">SQL</span>
+        <span class="badge" style="background:#2c3e50;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Formation</span>
+        <h2 style="margin-top:16px;"><i class="bi bi-app-indicator"></i> Application de Gestion MFC</h2>
+        <p style="color:#6c757d;font-size:1.05em;">Période : Janvier 2026 – Avril 2026 &nbsp;|&nbsp; Contexte : Formation (école)</p>
+        <p>
+          Dans le cadre de la formation BTS SIO, développement d'une application Java de gestion pour
+          l'entreprise fictive MFC. L'objectif était de concevoir une solution complète intégrant
+          une interface utilisateur, une logique métier orientée objet et une base de données SQL.
+        </p>
+      </div>
+
+      <!-- CONTEXTE ET BESOIN -->
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Contexte et besoin</h3>
+          <p>
+            L'entreprise fictive MFC avait besoin d'un outil de gestion permettant de centraliser
+            ses données et d'automatiser certaines tâches de suivi. Le projet a été réalisé en équipe
+            avec une approche orientée objet et une gestion de version via Git.
+          </p>
+          <ul>
+            <li>Analyse du besoin et rédaction des spécifications fonctionnelles</li>
+            <li>Modélisation de la base de données (MCD → MLD)</li>
+            <li>Conception des classes Java (diagramme de classes UML)</li>
+            <li>Planification en méthode Kanban (Trello)</li>
+          </ul>
+          <!-- EMPLACEMENT IMAGE -->
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Diagramme de classes UML ou MCD<br>
+              <em>(ex : assets/img/mfc-app-uml.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- CONCEPTION TECHNIQUE -->
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Conception et architecture</h3>
+          <p>
+            L'application suit un pattern <strong>MVC (Modèle-Vue-Contrôleur)</strong> pour séparer
+            la logique métier, l'accès aux données et l'interface graphique.
+          </p>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:16px;">
+            <div style="background:#e8f5e9;border-radius:8px;padding:16px;text-align:center;">
+              <i class="bi bi-database" style="font-size:1.8em;color:#28a745;"></i>
+              <h5 style="margin-top:8px;">Modèle</h5>
+              <p style="font-size:.9em;color:#555;">Classes Java (POJO), accès BDD via JDBC</p>
+            </div>
+            <div style="background:#e3f2fd;border-radius:8px;padding:16px;text-align:center;">
+              <i class="bi bi-display" style="font-size:1.8em;color:#1976d2;"></i>
+              <h5 style="margin-top:8px;">Vue</h5>
+              <p style="font-size:.9em;color:#555;">Interface graphique Swing / JavaFX</p>
+            </div>
+            <div style="background:#fff3e0;border-radius:8px;padding:16px;text-align:center;">
+              <i class="bi bi-gear" style="font-size:1.8em;color:#f57c00;"></i>
+              <h5 style="margin-top:8px;">Contrôleur</h5>
+              <p style="font-size:.9em;color:#555;">Gestion des événements et logique métier</p>
+            </div>
+          </div>
+          <!-- EMPLACEMENT IMAGE -->
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:20px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Capture de l'interface (fenêtre principale de l'app)<br>
+              <em>(ex : assets/img/mfc-app-interface.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- DÉVELOPPEMENT -->
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Développement et fonctionnalités</h3>
+          <p>Fonctionnalités implémentées :</p>
+          <ul>
+            <li><i class="bi bi-check-circle-fill" style="color:#28a745;"></i> Authentification utilisateur (connexion / déconnexion)</li>
+            <li><i class="bi bi-check-circle-fill" style="color:#28a745;"></i> Gestion CRUD (Créer, Lire, Modifier, Supprimer)</li>
+            <li><i class="bi bi-check-circle-fill" style="color:#28a745;"></i> Recherche et filtrage des données</li>
+            <li><i class="bi bi-check-circle-fill" style="color:#28a745;"></i> Connexion à la base de données MySQL via JDBC</li>
+            <li><i class="bi bi-check-circle-fill" style="color:#28a745;"></i> Export des données</li>
+            <li><i class="bi bi-check-circle-fill" style="color:#28a745;"></i> Gestion des erreurs et messages utilisateur</li>
+          </ul>
+
+          <!-- EXTRAIT DE CODE -->
+          <h4 style="margin-top:24px;"><i class="bi bi-code-slash"></i> Extrait de code – Connexion JDBC</h4>
+          <pre style="background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;font-size:.9em;overflow-x:auto;"><code>// Connexion à la base de données MySQL
+public class DatabaseManager {
+    private static final String URL = "jdbc:mysql://localhost:3306/mfc_db";
+    private static final String USER = "mfc_user";
+    private static final String PASSWORD = "••••••";
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
+}
+
+// Exemple CRUD : récupérer tous les enregistrements
+public List&lt;Client&gt; getAllClients() {
+    List&lt;Client&gt; clients = new ArrayList&lt;&gt;();
+    String query = "SELECT * FROM clients ORDER BY nom";
+    try (Connection conn = DatabaseManager.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(query);
+         ResultSet rs = stmt.executeQuery()) {
+        while (rs.next()) {
+            clients.add(new Client(
+                rs.getInt("id"),
+                rs.getString("nom"),
+                rs.getString("email")
+            ));
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return clients;
+}</code></pre>
+
+          <!-- EMPLACEMENT CAPTURE CODE -->
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Capture d'écran du code dans l'IDE (IntelliJ / Eclipse)<br>
+              <em>(ex : assets/img/mfc-app-code.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- TESTS -->
+      <article class="doc-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Tests et validation</h3>
+          <p>Des tests unitaires ont été réalisés pour valider les méthodes critiques de l'application :</p>
+          <ul>
+            <li>Tests unitaires avec <strong>JUnit 5</strong> sur les classes métier</li>
+            <li>Tests fonctionnels manuels sur les formulaires et les flux utilisateur</li>
+            <li>Tests de la connexion BDD et des requêtes SQL</li>
+            <li>Validation des contraintes d'intégrité (champs obligatoires, formats)</li>
+          </ul>
+          <!-- EMPLACEMENT IMAGE TESTS -->
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Capture des résultats JUnit (tests verts/rouges)<br>
+              <em>(ex : assets/img/mfc-app-tests.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- BILAN -->
+      <article class="doc-step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Bilan et compétences acquises</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div>
+              <h4 style="color:#28a745;"><i class="bi bi-check2-all"></i> Points positifs</h4>
+              <ul>
+                <li>Maîtrise du pattern MVC en Java</li>
+                <li>Gestion de projet avec Git (branches, commits, merge)</li>
+                <li>Conception de la base de données relationnelle</li>
+                <li>Travail en équipe et répartition des tâches</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color:#e74c3c;"><i class="bi bi-exclamation-circle"></i> Axes d'amélioration</h4>
+              <ul>
+                <li>Couverture de tests à améliorer (objectif 80%)</li>
+                <li>Documentation technique à compléter (Javadoc)</li>
+                <li>Optimisation des requêtes SQL</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:24px;padding:20px;background:#e8f5e9;border-radius:8px;border-left:4px solid #28a745;">
+            <h4><i class="bi bi-mortarboard"></i> Compétences BTS SIO couvertes</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C1 – Concevoir une solution applicative</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C2 – Développer les accès aux données</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C3 – Développer la présentation</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C4 – Déployer une solution</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C5 – Tester une solution</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C7 – Documenter</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Abdessamad EL-OUASSAI – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

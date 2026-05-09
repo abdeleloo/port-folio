@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test de Sécurité API – Portfolio</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Test de Sécurité API</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container documentation-section">
+    <section class="section">
+
+      <!-- EN-TÊTE PROJET -->
+      <div class="doc-header" style="margin-bottom:40px;">
+        <span class="badge" style="background:#e74c3c;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Sécurité</span>
+        <span class="badge" style="background:#2c3e50;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">API REST</span>
+        <span class="badge" style="background:#f57c00;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Entreprise – IPTwins</span>
+        <h2 style="margin-top:16px;"><i class="bi bi-shield-exclamation"></i> Test de Sécurité API</h2>
+        <p style="color:#6c757d;font-size:1.05em;">Période : Mars 2026 – Avril 2026 &nbsp;|&nbsp; Contexte : Alternance – IP Twins</p>
+        <p>
+          Dans le cadre de mon alternance chez IP Twins, j'ai réalisé une campagne de tests de sécurité
+          sur les APIs de l'application métier. L'objectif était d'identifier les vulnérabilités potentielles
+          et de proposer des corrections pour renforcer la sécurité des échanges de données.
+        </p>
+      </div>
+
+      <!-- CONTEXTE -->
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Contexte et objectifs</h3>
+          <p>
+            IP Twins expose plusieurs API REST utilisées par l'application interne pour gérer
+            les domaines, les contacts et la facturation. Une montée en compétences sur la sécurité
+            applicative était nécessaire avant l'ajout de nouvelles fonctionnalités.
+          </p>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:16px;">
+            <div style="background:#fff3cd;border-radius:8px;padding:16px;text-align:center;border-left:4px solid #ffc107;">
+              <i class="bi bi-exclamation-triangle" style="font-size:1.8em;color:#e67e22;"></i>
+              <h5 style="margin-top:8px;">Objectif 1</h5>
+              <p style="font-size:.9em;">Identifier les failles de sécurité existantes</p>
+            </div>
+            <div style="background:#d4edda;border-radius:8px;padding:16px;text-align:center;border-left:4px solid #28a745;">
+              <i class="bi bi-shield-check" style="font-size:1.8em;color:#28a745;"></i>
+              <h5 style="margin-top:8px;">Objectif 2</h5>
+              <p style="font-size:.9em;">Tester la robustesse des endpoints</p>
+            </div>
+            <div style="background:#d1ecf1;border-radius:8px;padding:16px;text-align:center;border-left:4px solid #17a2b8;">
+              <i class="bi bi-file-text" style="font-size:1.8em;color:#17a2b8;"></i>
+              <h5 style="margin-top:8px;">Objectif 3</h5>
+              <p style="font-size:.9em;">Rédiger un rapport de préconisations</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MÉTHODOLOGIE -->
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Méthodologie et outils utilisés</h3>
+          <p>Tests réalisés selon les recommandations <strong>OWASP Top 10</strong> pour les API :</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px;">
+            <div style="background:#f8f9fa;border-radius:8px;padding:20px;">
+              <h4><i class="bi bi-tools" style="color:#28a745;"></i> Outils utilisés</h4>
+              <ul>
+                <li><strong>Postman</strong> – Tests manuels des endpoints</li>
+                <li><strong>Burp Suite</strong> – Analyse du trafic HTTP</li>
+                <li><strong>curl</strong> – Tests en ligne de commande</li>
+                <li><strong>OWASP ZAP</strong> – Scan automatisé des vulnérabilités</li>
+              </ul>
+            </div>
+            <div style="background:#f8f9fa;border-radius:8px;padding:20px;">
+              <h4><i class="bi bi-list-check" style="color:#28a745;"></i> Types de tests</h4>
+              <ul>
+                <li>Authentification et gestion des tokens JWT</li>
+                <li>Contrôle d'accès (BOLA / BFLA)</li>
+                <li>Injection SQL via paramètres API</li>
+                <li>Exposition excessive de données</li>
+                <li>Rate limiting et brute force</li>
+              </ul>
+            </div>
+          </div>
+          <!-- EMPLACEMENT IMAGE OUTILS -->
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:20px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Capture Postman avec les requêtes testées<br>
+              <em>(ex : assets/img/test-api-postman.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- VULNÉRABILITÉS TROUVÉES -->
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Résultats des tests</h3>
+          <p>Exemples de vérifications réalisées (données anonymisées) :</p>
+
+          <div style="overflow-x:auto;margin-top:16px;">
+            <table style="width:100%;border-collapse:collapse;font-size:.9em;">
+              <thead>
+                <tr style="background:#2c3e50;color:white;">
+                  <th style="padding:10px;text-align:left;">Endpoint testé</th>
+                  <th style="padding:10px;text-align:left;">Type de test</th>
+                  <th style="padding:10px;text-align:left;">Résultat</th>
+                  <th style="padding:10px;text-align:left;">Criticité</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #dee2e6;">
+                  <td style="padding:10px;"><code>/api/contacts</code></td>
+                  <td style="padding:10px;">Contrôle d'accès (sans token)</td>
+                  <td style="padding:10px;color:#28a745;"><i class="bi bi-check-circle"></i> Accès refusé (401)</td>
+                  <td style="padding:10px;"><span style="background:#28a745;color:white;padding:2px 8px;border-radius:8px;">OK</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;background:#fff8f8;">
+                  <td style="padding:10px;"><code>/api/factures/{id}</code></td>
+                  <td style="padding:10px;">BOLA – accès à l'ID d'un autre utilisateur</td>
+                  <td style="padding:10px;color:#e74c3c;"><i class="bi bi-exclamation-circle"></i> À corriger</td>
+                  <td style="padding:10px;"><span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:8px;">Haute</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;">
+                  <td style="padding:10px;"><code>/api/login</code></td>
+                  <td style="padding:10px;">Brute force (sans rate limiting)</td>
+                  <td style="padding:10px;color:#f57c00;"><i class="bi bi-exclamation-triangle"></i> Partiellement protégé</td>
+                  <td style="padding:10px;"><span style="background:#ffc107;color:#333;padding:2px 8px;border-radius:8px;">Moyenne</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;">
+                  <td style="padding:10px;"><code>/api/search</code></td>
+                  <td style="padding:10px;">Injection SQL (paramètre q)</td>
+                  <td style="padding:10px;color:#28a745;"><i class="bi bi-check-circle"></i> Requêtes préparées OK</td>
+                  <td style="padding:10px;"><span style="background:#28a745;color:white;padding:2px 8px;border-radius:8px;">OK</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- EXTRAIT TEST CURL -->
+          <h4 style="margin-top:24px;"><i class="bi bi-terminal"></i> Exemple de test – Vérification d'authentification</h4>
+          <pre style="background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;font-size:.9em;overflow-x:auto;"><code># Test 1 : accès sans token → doit retourner 401
+curl -s -o /dev/null -w "%{http_code}" \
+  https://api.iptwins.net/v1/contacts
+# Résultat attendu : 401 Unauthorized
+
+# Test 2 : accès avec token valide → doit retourner 200
+curl -s -o /dev/null -w "%{http_code}" \
+  -H "Authorization: Bearer &lt;TOKEN&gt;" \
+  https://api.iptwins.net/v1/contacts
+# Résultat attendu : 200 OK
+
+# Test 3 : BOLA → accès à la ressource d'un autre utilisateur
+curl -s -w "%{http_code}" \
+  -H "Authorization: Bearer &lt;MON_TOKEN&gt;" \
+  https://api.iptwins.net/v1/factures/9999
+# Résultat observé : 200 OK ← vulnérabilité identifiée</code></pre>
+
+          <!-- EMPLACEMENT IMAGE RÉSULTATS -->
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
+            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Capture d'écran des résultats Burp Suite ou OWASP ZAP<br>
+              <em>(ex : assets/img/test-api-resultats.png)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRÉCONISATIONS -->
+      <article class="doc-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Préconisations et corrections</h3>
+          <ul>
+            <li>
+              <strong>BOLA :</strong> Ajouter une vérification côté serveur que l'ID demandé
+              appartient bien à l'utilisateur authentifié avant de retourner la ressource.
+            </li>
+            <li>
+              <strong>Rate limiting :</strong> Implémenter un mécanisme de limitation des requêtes
+              sur le endpoint <code>/api/login</code> (ex : 5 tentatives / 15 min par IP).
+            </li>
+            <li>
+              <strong>Tokens JWT :</strong> Vérifier l'expiration des tokens et mettre en place
+              un mécanisme de révocation.
+            </li>
+            <li>
+              <strong>Logs de sécurité :</strong> Journaliser les tentatives d'accès non autorisées
+              pour permettre une détection d'intrusion.
+            </li>
+          </ul>
+
+          <!-- EMPLACEMENT RAPPORT PDF -->
+          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
+            <i class="bi bi-file-pdf" style="font-size:2em;color:#adb5bd;"></i>
+            <p style="color:#adb5bd;margin-top:8px;">
+              📌 <strong>À ajouter :</strong> Rapport PDF de test de sécurité (si disponible)<br>
+              <em>(ex : assets/docs/rapport-test-api.pdf)</em>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- BILAN -->
+      <article class="doc-step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Bilan et compétences acquises</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div>
+              <h4 style="color:#28a745;"><i class="bi bi-check2-all"></i> Points positifs</h4>
+              <ul>
+                <li>Compréhension des vulnérabilités OWASP API Top 10</li>
+                <li>Maîtrise de Postman pour les tests d'API</li>
+                <li>Capacité à identifier et documenter des failles</li>
+                <li>Proposition de solutions concrètes</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color:#e74c3c;"><i class="bi bi-exclamation-circle"></i> Axes d'amélioration</h4>
+              <ul>
+                <li>Approfondir les tests automatisés</li>
+                <li>Mieux formaliser le rapport technique</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:24px;padding:20px;background:#e8f5e9;border-radius:8px;border-left:4px solid #28a745;">
+            <h4><i class="bi bi-mortarboard"></i> Compétences BTS SIO couvertes</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C5 – Tester une solution applicative</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C6 – Maintenir / faire évoluer</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C7 – Documenter une solution</span>
+              <span style="background:#2c3e50;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Bloc 1 – Mettre à disposition un service</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Abdessamad EL-OUASSAI – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

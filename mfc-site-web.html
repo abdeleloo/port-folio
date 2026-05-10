@@ -59,13 +59,10 @@
             <li>Modélisation de la base de données (MCD / MLD)</li>
             <li>Répartition des tâches et planification (Trello / Git)</li>
           </ul>
-          <!-- EMPLACEMENT IMAGE MAQUETTE -->
-          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
-            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
-            <p style="color:#adb5bd;margin-top:8px;">
-              📌 <strong>À ajouter :</strong> Maquette ou wireframe du site<br>
-              <em>(ex : assets/img/mfc-site-maquette.png)</em>
-            </p>
+          <div class="code-card" style="margin-top:16px;">
+            <img src="assets/img/mfc-site-maquette.png" alt="Maquette du site MFC" style="width:100%;border-radius:6px;">
+            <div class="code-description">Maquette / wireframe du site MFC réalisée en phase de conception.</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l'image</button>
           </div>
         </div>
       </article>
@@ -92,14 +89,6 @@
                 <li>Base de données MySQL</li>
               </ul>
             </div>
-          </div>
-          <!-- EMPLACEMENT SCHEMA ARCHITECTURE -->
-          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:20px;">
-            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
-            <p style="color:#adb5bd;margin-top:8px;">
-              📌 <strong>À ajouter :</strong> Schéma d'architecture client-serveur<br>
-              <em>(ex : assets/img/mfc-site-architecture.png)</em>
-            </p>
           </div>
         </div>
       </article>
@@ -168,13 +157,10 @@ CREATE TABLE commandes (
     date_cmd   DATE NOT NULL,
     FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE
 );</code></pre>
-          <!-- EMPLACEMENT IMAGE BDD -->
-          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
-            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
-            <p style="color:#adb5bd;margin-top:8px;">
-              📌 <strong>À ajouter :</strong> MCD ou capture PhpMyAdmin / MySQL Workbench<br>
-              <em>(ex : assets/img/mfc-site-bdd.png)</em>
-            </p>
+          <div class="code-card" style="margin-top:16px;">
+            <img src="assets/img/mfc-site-bdd.png" alt="Base de données du site MFC" style="width:100%;border-radius:6px;">
+            <div class="code-description">Structure de la base de données MFC — MCD ou capture PhpMyAdmin.</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l'image</button>
           </div>
         </div>
       </article>

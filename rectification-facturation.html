@@ -72,12 +72,9 @@
               </ul>
             </div>
           </div>
-          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
-            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
-            <p style="color:#adb5bd;margin-top:8px;">
-              📌 <strong>À ajouter :</strong> Capture du bug (panneau vide ou données incorrectes)<br>
-              <em>(ex : assets/img/facturation-bug.png)</em>
-            </p>
+          <div style="background:#fff3cd;border-radius:8px;padding:16px;border-left:4px solid #ffc107;margin-top:16px;">
+            <h5 style="margin:0 0 6px 0;color:#e67e22;"><i class="bi bi-info-circle"></i> Note</h5>
+            <p style="margin:0;font-size:.9em;">Les fichiers de sortie affectés par le bug étaient corrompus et ne sont plus accessibles. La documentation du problème repose sur l'analyse du code et les symptômes décrits ci-dessus.</p>
           </div>
         </div>
       </article>
@@ -126,12 +123,9 @@ document.querySelector('#facturesContainer').addEventListener('click', e => {
   if (btn) showDetails(btn.dataset.factureId);
 });</code></pre>
 
-          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
-            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
-            <p style="color:#adb5bd;margin-top:8px;">
-              📌 <strong>À ajouter :</strong> Capture de l'interface corrigée (panneau bien rempli)<br>
-              <em>(ex : assets/img/facturation-corrige.png)</em>
-            </p>
+          <div style="background:#d4edda;border-radius:8px;padding:16px;border-left:4px solid #28a745;margin-top:16px;">
+            <h5 style="margin:0 0 6px 0;color:#28a745;"><i class="bi bi-check-circle"></i> Résultat de la correction</h5>
+            <p style="margin:0;font-size:.9em;">Après correction, le panneau de détails s'affiche correctement à chaque clic, sans données résiduelles ni comportement aléatoire. La correction a été validée par l'utilisateur final avant déploiement en production.</p>
           </div>
         </div>
       </article>
@@ -147,13 +141,6 @@ document.querySelector('#facturesContainer').addEventListener('click', e => {
             <li>Test de non-régression sur les autres fonctionnalités de la page</li>
             <li>Validation par l'utilisateur final après correction</li>
           </ul>
-          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
-            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
-            <p style="color:#adb5bd;margin-top:8px;">
-              📌 <strong>À ajouter :</strong> Capture DevTools (onglet Network, requêtes AJAX) ou retour de validation<br>
-              <em>(ex : assets/img/facturation-tests.png)</em>
-            </p>
-          </div>
         </div>
       </article>
 

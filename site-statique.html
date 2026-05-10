@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Statique – Hugo Yoga Studio – Portfolio</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Site Statique — Hugo Yoga Studio</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container documentation-section">
+    <section class="section">
+
+      <div class="doc-header" style="margin-bottom:40px;">
+        <span class="badge" style="background:#E44D26;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">HTML</span>
+        <span class="badge" style="background:#264de4;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">CSS</span>
+        <span class="badge" style="background:#2c3e50;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Formation</span>
+        <h2 style="margin-top:16px;"><i class="bi bi-file-code"></i> Site Statique — Hugo Yoga Studio</h2>
+        <p style="color:#6c757d;font-size:1.05em;">Période : Novembre 2024 – Décembre 2024 &nbsp;|&nbsp; Contexte : Formation (école) — 1ère année BTS SIO</p>
+        <p>
+          Premier projet de développement web en BTS SIO. L'objectif était de créer un site statique
+          en HTML et CSS uniquement, sans PHP ni JavaScript. Ce projet a permis de maîtriser les bases
+          de la structure HTML, la mise en page CSS et le responsive design.
+        </p>
+      </div>
+
+      <!-- APERÇU -->
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Aperçu du site</h3>
+          <p>
+            Site vitrine pour un studio de yoga fictif — <strong>Hugo Yoga Studio</strong>.
+            Le site présente les cours, les horaires et les informations de contact du studio,
+            dans une charte graphique calme et épurée.
+          </p>
+          <div class="code-card" style="margin-top:16px;">
+            <img src="assets/img/site-statique-yoga.png" alt="Page d'accueil Hugo Yoga Studio" style="width:100%;border-radius:6px;">
+            <div class="code-description">Page d'accueil du site Hugo Yoga Studio — structure HTML statique avec navigation, image hero et contenu centré.</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l'image</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- STRUCTURE -->
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Structure et contenu</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px;">
+            <div style="background:#f8f9fa;border-radius:8px;padding:20px;">
+              <h4><i class="bi bi-layout-text-window" style="color:#28a745;"></i> Pages réalisées</h4>
+              <ul>
+                <li><strong>Accueil</strong> — présentation du studio</li>
+                <li><strong>Cours</strong> — Hatha, Vinyasa, yoga réparateur</li>
+                <li><strong>Horaire</strong> — planning des séances</li>
+                <li><strong>Contact</strong> — formulaire statique</li>
+              </ul>
+            </div>
+            <div style="background:#f8f9fa;border-radius:8px;padding:20px;">
+              <h4><i class="bi bi-palette" style="color:#28a745;"></i> Techniques utilisées</h4>
+              <ul>
+                <li>Structuration sémantique HTML5</li>
+                <li>Mise en page CSS (flexbox, centrage)</li>
+                <li>Charte graphique cohérente (couleurs, typographie)</li>
+                <li>Navigation entre pages statiques</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4 style="margin-top:24px;"><i class="bi bi-code-slash"></i> Extrait HTML — Structure de la page d'accueil</h4>
+          <pre style="background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;font-size:.9em;overflow-x:auto;"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Hugo Yoga Studio&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;img src="img/lotus.jpg" alt="Logo Hugo Yoga Studio"&gt;
+    &lt;h1&gt;HUGO YOGA STUDIO&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;a href="index.html"&gt;Accueil&lt;/a&gt;
+      &lt;a href="cours.html"&gt;Cours&lt;/a&gt;
+      &lt;a href="horaire.html"&gt;Horaire&lt;/a&gt;
+      &lt;a href="contact.html"&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;img src="img/salle.jpg" alt="Salle de yoga"&gt;
+    &lt;h2&gt;Trouvez votre lumière intérieure&lt;/h2&gt;
+    &lt;p&gt;HUGO Yoga Studio propose tous les niveaux de pratique...&lt;/p&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+      </article>
+
+      <!-- BILAN -->
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Bilan et compétences acquises</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div>
+              <h4 style="color:#28a745;"><i class="bi bi-check2-all"></i> Points positifs</h4>
+              <ul>
+                <li>Maîtrise des balises sémantiques HTML5</li>
+                <li>Mise en page CSS propre et cohérente</li>
+                <li>Navigation multi-pages fonctionnelle</li>
+                <li>Respect de la charte graphique imposée</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color:#e74c3c;"><i class="bi bi-exclamation-circle"></i> Axes d'amélioration</h4>
+              <ul>
+                <li>Ajouter du responsive design (mobile)</li>
+                <li>Enrichir avec du JavaScript</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:24px;padding:20px;background:#e8f5e9;border-radius:8px;border-left:4px solid #28a745;">
+            <h4><i class="bi bi-mortarboard"></i> Compétences BTS SIO couvertes</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Développer la présence en ligne</span>
+              <span style="background:#17a2b8;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Participer à l'évolution d'un site Web</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Abdessamad EL-OUASSAI – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

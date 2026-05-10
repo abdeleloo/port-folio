@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Widget Statistiques Géographiques – Portfolio</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Widget Statistiques Géographiques</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container documentation-section">
+    <section class="section">
+
+      <!-- EN-TÊTE PROJET -->
+      <div class="doc-header" style="margin-bottom:40px;">
+        <span class="badge" style="background:#787CB5;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">PHP</span>
+        <span class="badge" style="background:#f7df1e;color:#333;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">JavaScript</span>
+        <span class="badge" style="background:#E44D26;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">HTML/CSS</span>
+        <span class="badge" style="background:#f57c00;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Entreprise – IPTwins</span>
+        <h2 style="margin-top:16px;"><i class="bi bi-geo-alt"></i> Développement et intégration d'un widget de statistiques géographiques interactif</h2>
+        <p style="color:#6c757d;font-size:1.05em;">Période : Mars 2025 – Avril 2025 &nbsp;|&nbsp; Contexte : Alternance – IP Twins</p>
+        <p>
+          Dans le cadre de mon alternance chez IP Twins, j'ai développé et intégré un widget interactif
+          de statistiques géographiques dans l'application Domainarium II. Ce widget permet de visualiser
+          la répartition géographique des domaines et des clients directement depuis l'interface métier.
+        </p>
+      </div>
+
+      <!-- CONTEXTE -->
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Contexte et objectifs</h3>
+          <p>
+            L'application Domainarium II gère des milliers de domaines répartis dans différents pays.
+            Le besoin était de visualiser cette répartition géographique de façon claire et interactive,
+            sans quitter l'interface métier.
+          </p>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:16px;">
+            <div style="background:#e8f5e9;border-radius:8px;padding:16px;text-align:center;border-left:4px solid #28a745;">
+              <i class="bi bi-bar-chart" style="font-size:1.8em;color:#28a745;"></i>
+              <h5 style="margin-top:8px;">Visualisation</h5>
+              <p style="font-size:.9em;">Afficher les stats géographiques de façon graphique</p>
+            </div>
+            <div style="background:#e3f2fd;border-radius:8px;padding:16px;text-align:center;border-left:4px solid #17a2b8;">
+              <i class="bi bi-globe" style="font-size:1.8em;color:#17a2b8;"></i>
+              <h5 style="margin-top:8px;">Interactivité</h5>
+              <p style="font-size:.9em;">Filtres dynamiques par pays et par période</p>
+            </div>
+            <div style="background:#fff3cd;border-radius:8px;padding:16px;text-align:center;border-left:4px solid #ffc107;">
+              <i class="bi bi-puzzle" style="font-size:1.8em;color:#e67e22;"></i>
+              <h5 style="margin-top:8px;">Intégration</h5>
+              <p style="font-size:.9em;">Widget intégré dans l'interface existante</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CONCEPTION -->
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Conception et développement</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px;">
+            <div style="background:#f8f9fa;border-radius:8px;padding:20px;">
+              <h4><i class="bi bi-laptop" style="color:#28a745;"></i> Front-end</h4>
+              <ul>
+                <li>Widget en HTML / CSS / JavaScript</li>
+                <li>Graphiques interactifs (librairie JS)</li>
+                <li>Filtres dynamiques par pays</li>
+                <li>Responsive : adapté bureau et tablette</li>
+              </ul>
+            </div>
+            <div style="background:#f8f9fa;border-radius:8px;padding:20px;">
+              <h4><i class="bi bi-server" style="color:#28a745;"></i> Back-end</h4>
+              <ul>
+                <li>PHP — récupération des données via requête SQL</li>
+                <li>Agrégation des statistiques par pays</li>
+                <li>Retour JSON consommé par le widget</li>
+                <li>Optimisation des requêtes (index, groupBy)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="code-card" style="margin-top:20px;">
+            <img src="assets/img/widget-front.png" alt="Widget statistiques géographiques — Interface Domainarium II" style="width:100%;border-radius:6px;">
+            <div class="code-description">Vue du widget de statistiques géographiques intégré dans l'interface Domainarium II — répartition des domaines par pays avec filtres interactifs.</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l'image</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- RÉSULTAT -->
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Résultat et impact</h3>
+          <ul>
+            <li>Widget entièrement intégré dans Domainarium II sans rupture de l'interface existante</li>
+            <li>Visualisation instantanée de la répartition géographique des domaines clients</li>
+            <li>Filtres dynamiques permettant aux équipes commerciales de cibler par pays</li>
+            <li>Code versionné et intégré via Git (merge request validée)</li>
+          </ul>
+
+          <div style="margin-top:20px;padding:20px;background:#e8f5e9;border-radius:8px;border-left:4px solid #28a745;">
+            <h4><i class="bi bi-mortarboard"></i> Compétences BTS SIO couvertes</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Répondre aux demandes d'évolution</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Développer la présence en ligne</span>
+              <span style="background:#2c3e50;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Travailler en mode projet</span>
+              <span style="background:#17a2b8;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Mettre à disposition un service</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Abdessamad EL-OUASSAI – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

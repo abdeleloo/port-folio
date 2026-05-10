@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Vitrine Musculation – GYM YONOS – Portfolio</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Site Vitrine — GYM YONOS</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container documentation-section">
+    <section class="section">
+
+      <div class="doc-header" style="margin-bottom:40px;">
+        <span class="badge" style="background:#E44D26;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">HTML</span>
+        <span class="badge" style="background:#264de4;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">CSS</span>
+        <span class="badge" style="background:#787CB5;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">PHP</span>
+        <span class="badge" style="background:#2c3e50;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Formation</span>
+        <h2 style="margin-top:16px;"><i class="bi bi-dumbbell"></i> Site Vitrine d'une Salle de Musculation — GYM YONOS</h2>
+        <p style="color:#6c757d;font-size:1.05em;">Période : Décembre 2024 – Janvier 2025 &nbsp;|&nbsp; Contexte : Formation (école) — 1ère année BTS SIO</p>
+        <p>
+          Deuxième projet web en BTS SIO, cette fois avec l'introduction de PHP.
+          L'objectif était de créer un site vitrine pour une salle de musculation fictive,
+          en ajoutant la gestion des formulaires côté serveur avec PHP.
+        </p>
+      </div>
+
+      <!-- APERÇU -->
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Aperçu du site</h3>
+          <p>
+            Site vitrine pour la salle de musculation fictive <strong>GYM YONOS</strong>.
+            Le site présente les équipements, les tarifs et un formulaire de contact fonctionnel
+            traité côté serveur en PHP.
+          </p>
+          <div class="code-card" style="margin-top:16px;">
+            <img src="assets/img/site-musculation-gym.png" alt="Page d'accueil GYM YONOS" style="width:100%;border-radius:6px;">
+            <div class="code-description">Page d'accueil du site GYM YONOS — hero image plein écran, section présentation et galerie photos.</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l'image</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- STRUCTURE -->
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Structure et fonctionnalités</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px;">
+            <div style="background:#f8f9fa;border-radius:8px;padding:20px;">
+              <h4><i class="bi bi-layout-text-window" style="color:#28a745;"></i> Pages réalisées</h4>
+              <ul>
+                <li><strong>Accueil</strong> — hero image + présentation</li>
+                <li><strong>Matériel</strong> — équipements disponibles</li>
+                <li><strong>Tarifs</strong> — abonnements et formules</li>
+                <li><strong>Contact</strong> — formulaire PHP fonctionnel</li>
+              </ul>
+            </div>
+            <div style="background:#f8f9fa;border-radius:8px;padding:20px;">
+              <h4><i class="bi bi-code-slash" style="color:#28a745;"></i> Techniques utilisées</h4>
+              <ul>
+                <li>HTML5 / CSS3 — mise en page avancée</li>
+                <li>Hero image plein écran (CSS background)</li>
+                <li>Galerie photos responsive</li>
+                <li>Formulaire de contact traité en PHP</li>
+                <li>Validation des champs côté serveur</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- EXTRAIT PHP FORMULAIRE -->
+          <h4 style="margin-top:24px;"><i class="bi bi-filetype-php"></i> Extrait PHP — Traitement du formulaire de contact</h4>
+          <pre style="background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;font-size:.9em;overflow-x:auto;"><code>&lt;?php
+// Traitement du formulaire de contact
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $nom    = htmlspecialchars(trim($_POST['nom'] ?? ''));
+    $email  = htmlspecialchars(trim($_POST['email'] ?? ''));
+    $message = htmlspecialchars(trim($_POST['message'] ?? ''));
+
+    // Validation simple
+    if (empty($nom) || empty($email) || empty($message)) {
+        $erreur = "Tous les champs sont obligatoires.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erreur = "Adresse e-mail invalide.";
+    } else {
+        $succes = "Votre message a bien été envoyé. Merci !";
+    }
+}
+?&gt;</code></pre>
+        </div>
+      </article>
+
+      <!-- BILAN -->
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Bilan et compétences acquises</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div>
+              <h4 style="color:#28a745;"><i class="bi bi-check2-all"></i> Points positifs</h4>
+              <ul>
+                <li>Première utilisation de PHP côté serveur</li>
+                <li>Gestion et validation des formulaires</li>
+                <li>Design plus avancé (hero, galerie)</li>
+                <li>Navigation cohérente entre toutes les pages</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color:#e74c3c;"><i class="bi bi-exclamation-circle"></i> Axes d'amélioration</h4>
+              <ul>
+                <li>Ajouter une base de données pour stocker les messages</li>
+                <li>Améliorer la sécurité (CSRF, XSS)</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:24px;padding:20px;background:#e8f5e9;border-radius:8px;border-left:4px solid #28a745;">
+            <h4><i class="bi bi-mortarboard"></i> Compétences BTS SIO couvertes</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Développer la présence en ligne</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Traiter des demandes applicatives</span>
+              <span style="background:#17a2b8;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Participer à l'évolution d'un site Web</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Abdessamad EL-OUASSAI – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

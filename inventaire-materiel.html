@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventaire Matériel Informatique – Portfolio</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Inventaire Matériel Informatique</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container documentation-section">
+    <section class="section">
+
+      <div class="doc-header" style="margin-bottom:40px;">
+        <span class="badge" style="background:#1D6F42;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Excel</span>
+        <span class="badge" style="background:#6c757d;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Recensement</span>
+        <span class="badge" style="background:#2c3e50;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Formation</span>
+        <h2 style="margin-top:16px;"><i class="bi bi-clipboard-data"></i> Réaliser un inventaire matériel informatique</h2>
+        <p style="color:#6c757d;font-size:1.05em;">Période : Février 2025 – Mars 2025 &nbsp;|&nbsp; Contexte : Formation (école) — 1ère année BTS SIO</p>
+        <p>
+          Dans le cadre de la gestion du patrimoine informatique, j'ai réalisé un inventaire complet
+          du matériel présent dans la salle des serveurs et les locaux. Chaque équipement a été recensé,
+          identifié et consigné dans un tableau Excel structuré.
+        </p>
+      </div>
+
+      <!-- MÉTHODOLOGIE -->
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Méthodologie</h3>
+          <p>L'inventaire a été réalisé en plusieurs étapes :</p>
+          <ol style="line-height:2;">
+            <li>Inspection physique de la salle des serveurs et des postes de travail</li>
+            <li>Recensement et comptage de chaque type de matériel</li>
+            <li>Relevé des informations techniques (marque, modèle, numéro de série si disponible)</li>
+            <li>Consignation de toutes les données dans un tableau Excel</li>
+            <li>Vérification croisée avec les équipements GLPI déjà enregistrés</li>
+          </ol>
+        </div>
+      </article>
+
+      <!-- MATÉRIEL RECENSÉ -->
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Matériel recensé</h3>
+          <div style="overflow-x:auto;margin-top:16px;">
+            <table style="width:100%;border-collapse:collapse;font-size:.9em;">
+              <thead>
+                <tr style="background:#2c3e50;color:white;">
+                  <th style="padding:12px;text-align:left;">Catégorie</th>
+                  <th style="padding:12px;text-align:center;">Quantité</th>
+                  <th style="padding:12px;text-align:left;">Exemples d'équipements</th>
+                  <th style="padding:12px;text-align:left;">État</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #dee2e6;">
+                  <td style="padding:12px;"><i class="bi bi-pc-display" style="color:#28a745;"></i> Ordinateurs fixes</td>
+                  <td style="padding:12px;text-align:center;font-weight:bold;">5</td>
+                  <td style="padding:12px;">Postes de travail salle TP</td>
+                  <td style="padding:12px;"><span style="background:#28a745;color:white;padding:2px 8px;border-radius:8px;">En service</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;background:#f8f9fa;">
+                  <td style="padding:12px;"><i class="bi bi-hdd-network" style="color:#17a2b8;"></i> Matériels réseau</td>
+                  <td style="padding:12px;text-align:center;font-weight:bold;">3</td>
+                  <td style="padding:12px;">Switchs, routeur</td>
+                  <td style="padding:12px;"><span style="background:#28a745;color:white;padding:2px 8px;border-radius:8px;">En service</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;">
+                  <td style="padding:12px;"><i class="bi bi-laptop" style="color:#6c757d;"></i> Ordinateurs portables</td>
+                  <td style="padding:12px;text-align:center;font-weight:bold;">0</td>
+                  <td style="padding:12px;">—</td>
+                  <td style="padding:12px;"><span style="background:#6c757d;color:white;padding:2px 8px;border-radius:8px;">Non recensé</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;background:#f8f9fa;">
+                  <td style="padding:12px;"><i class="bi bi-printer" style="color:#e67e22;"></i> Imprimantes</td>
+                  <td style="padding:12px;text-align:center;font-weight:bold;">0</td>
+                  <td style="padding:12px;">—</td>
+                  <td style="padding:12px;"><span style="background:#6c757d;color:white;padding:2px 8px;border-radius:8px;">Non recensé</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;">
+                  <td style="padding:12px;"><i class="bi bi-display" style="color:#e74c3c;"></i> Moniteurs</td>
+                  <td style="padding:12px;text-align:center;font-weight:bold;">0</td>
+                  <td style="padding:12px;">—</td>
+                  <td style="padding:12px;"><span style="background:#6c757d;color:white;padding:2px 8px;border-radius:8px;">Non recensé</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="background:#d1ecf1;border-radius:8px;padding:16px;border-left:4px solid #17a2b8;margin-top:20px;">
+            <h5 style="margin:0 0 6px 0;color:#17a2b8;"><i class="bi bi-info-circle"></i> Outil utilisé</h5>
+            <p style="margin:0;font-size:.95em;">
+              Toutes les données ont été saisies dans un tableau <strong>Excel</strong> structuré avec les colonnes :
+              Catégorie, Marque, Modèle, Numéro de série, Localisation, État, Observations.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- LIEN AVEC GLPI -->
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Lien avec la configuration GLPI</h3>
+          <p>
+            Cet inventaire physique a servi de base pour alimenter et vérifier la cohérence
+            des données enregistrées dans GLPI lors du projet de configuration du parc informatique.
+          </p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px;">
+            <div style="background:#e8f5e9;border-radius:8px;padding:20px;text-align:center;">
+              <i class="bi bi-search" style="font-size:2em;color:#28a745;"></i>
+              <h5 style="margin-top:8px;">Recensement terrain</h5>
+              <p style="font-size:.9em;">Comptage physique dans la salle des serveurs</p>
+            </div>
+            <div style="background:#e3f2fd;border-radius:8px;padding:20px;text-align:center;">
+              <i class="bi bi-table" style="font-size:2em;color:#17a2b8;"></i>
+              <h5 style="margin-top:8px;">Synthèse Excel</h5>
+              <p style="font-size:.9em;">Consignation structurée et vérification avec GLPI</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- BILAN -->
+      <article class="doc-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Bilan et compétences acquises</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div>
+              <h4 style="color:#28a745;"><i class="bi bi-check2-all"></i> Points positifs</h4>
+              <ul>
+                <li>Compréhension de la gestion du patrimoine informatique</li>
+                <li>Rigueur dans le recensement et la saisie des données</li>
+                <li>Lien entre inventaire terrain et outil ITSM (GLPI)</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color:#e74c3c;"><i class="bi bi-exclamation-circle"></i> Axes d'amélioration</h4>
+              <ul>
+                <li>Utiliser un outil dédié (GLPI) directement pour l'inventaire</li>
+                <li>Automatiser la collecte avec un agent GLPI</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:24px;padding:20px;background:#e8f5e9;border-radius:8px;border-left:4px solid #28a745;">
+            <h4><i class="bi bi-mortarboard"></i> Compétences BTS SIO couvertes</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Gérer le patrimoine informatique</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Recenser et identifier les ressources numériques</span>
+              <span style="background:#17a2b8;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Exploiter des référentiels adoptés par le prestataire</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Abdessamad EL-OUASSAI – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

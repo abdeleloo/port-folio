@@ -114,74 +114,136 @@
       <article class="doc-step">
         <div class="step-number">3</div>
         <div class="step-content">
-          <h3>Résultats des tests</h3>
-          <p>Exemples de vérifications réalisées (données anonymisées) :</p>
+          <h3>Résultats des tests — Vulnérabilités identifiées</h3>
+          <p>Audit réalisé sur 4 modules de l'application métier IP Twins (Domainarium II) :</p>
 
-          <div style="overflow-x:auto;margin-top:16px;">
-            <table style="width:100%;border-collapse:collapse;font-size:.9em;">
+          <!-- MODULE USERS -->
+          <h4 style="margin-top:24px;color:#e74c3c;"><i class="bi bi-people"></i> Module Users</h4>
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:.9em;margin-top:8px;">
               <thead>
                 <tr style="background:#2c3e50;color:white;">
-                  <th style="padding:10px;text-align:left;">Endpoint testé</th>
-                  <th style="padding:10px;text-align:left;">Type de test</th>
-                  <th style="padding:10px;text-align:left;">Résultat</th>
+                  <th style="padding:10px;text-align:left;">Problème</th>
+                  <th style="padding:10px;text-align:left;">Impact</th>
                   <th style="padding:10px;text-align:left;">Criticité</th>
                 </tr>
               </thead>
               <tbody>
-                <tr style="border-bottom:1px solid #dee2e6;">
-                  <td style="padding:10px;"><code>/api/contacts</code></td>
-                  <td style="padding:10px;">Contrôle d'accès (sans token)</td>
-                  <td style="padding:10px;color:#28a745;"><i class="bi bi-check-circle"></i> Accès refusé (401)</td>
-                  <td style="padding:10px;"><span style="background:#28a745;color:white;padding:2px 8px;border-radius:8px;">OK</span></td>
-                </tr>
                 <tr style="border-bottom:1px solid #dee2e6;background:#fff8f8;">
-                  <td style="padding:10px;"><code>/api/factures/{id}</code></td>
-                  <td style="padding:10px;">BOLA – accès à l'ID d'un autre utilisateur</td>
-                  <td style="padding:10px;color:#e74c3c;"><i class="bi bi-exclamation-circle"></i> À corriger</td>
+                  <td style="padding:10px;">Fuite de données : numéros de téléphone personnels et <code>last_login_at</code> exposés en clair</td>
+                  <td style="padding:10px;">Violation RGPD, données sensibles accessibles</td>
                   <td style="padding:10px;"><span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:8px;">Haute</span></td>
                 </tr>
-                <tr style="border-bottom:1px solid #dee2e6;">
-                  <td style="padding:10px;"><code>/api/login</code></td>
-                  <td style="padding:10px;">Brute force (sans rate limiting)</td>
-                  <td style="padding:10px;color:#f57c00;"><i class="bi bi-exclamation-triangle"></i> Partiellement protégé</td>
-                  <td style="padding:10px;"><span style="background:#ffc107;color:#333;padding:2px 8px;border-radius:8px;">Moyenne</span></td>
-                </tr>
-                <tr style="border-bottom:1px solid #dee2e6;">
-                  <td style="padding:10px;"><code>/api/search</code></td>
-                  <td style="padding:10px;">Injection SQL (paramètre q)</td>
-                  <td style="padding:10px;color:#28a745;"><i class="bi bi-check-circle"></i> Requêtes préparées OK</td>
-                  <td style="padding:10px;"><span style="background:#28a745;color:white;padding:2px 8px;border-radius:8px;">OK</span></td>
+                <tr style="border-bottom:1px solid #dee2e6;background:#fff8f8;">
+                  <td style="padding:10px;">Profils complets exposés sans masquage des champs sensibles</td>
+                  <td style="padding:10px;">Répertoire complet du groupe accessible via un seul token compromis</td>
+                  <td style="padding:10px;"><span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:8px;">Haute</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <!-- EXTRAIT TEST CURL -->
-          <h4 style="margin-top:24px;"><i class="bi bi-terminal"></i> Exemple de test – Vérification d'authentification</h4>
-          <pre style="background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;font-size:.9em;overflow-x:auto;"><code># Test 1 : accès sans token → doit retourner 401
-curl -s -o /dev/null -w "%{http_code}" \
-  https://api.iptwins.net/v1/contacts
-# Résultat attendu : 401 Unauthorized
+          <!-- MODULE TASKS -->
+          <h4 style="margin-top:24px;color:#e67e22;"><i class="bi bi-list-task"></i> Module Tasks</h4>
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:.9em;margin-top:8px;">
+              <thead>
+                <tr style="background:#2c3e50;color:white;">
+                  <th style="padding:10px;text-align:left;">Problème</th>
+                  <th style="padding:10px;text-align:left;">Impact</th>
+                  <th style="padding:10px;text-align:left;">Criticité</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #dee2e6;background:#fff8f8;">
+                  <td style="padding:10px;">AuthCodes exposés en clair dans le JSON</td>
+                  <td style="padding:10px;">Risque de vol de domaines clients</td>
+                  <td style="padding:10px;"><span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:8px;">Critique</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;background:#fff8f8;">
+                  <td style="padding:10px;">Paramètre <code>include_user</code> renvoie numéros de téléphone et e-mails du staff</td>
+                  <td style="padding:10px;">Exposition des données personnelles des employés</td>
+                  <td style="padding:10px;"><span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:8px;">Haute</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;background:#fff3cd;">
+                  <td style="padding:10px;">Champ <code>structure</code> renvoie du code PHP brut dans la réponse JSON</td>
+                  <td style="padding:10px;">Exposition de la logique métier côté serveur</td>
+                  <td style="padding:10px;"><span style="background:#ffc107;color:#333;padding:2px 8px;border-radius:8px;">Moyenne</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;background:#fff3cd;">
+                  <td style="padding:10px;">Payload trop volumineux à cause des jointures</td>
+                  <td style="padding:10px;">Risque de saturation front-end et serveur</td>
+                  <td style="padding:10px;"><span style="background:#ffc107;color:#333;padding:2px 8px;border-radius:8px;">Moyenne</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-# Test 2 : accès avec token valide → doit retourner 200
-curl -s -o /dev/null -w "%{http_code}" \
-  -H "Authorization: Bearer &lt;TOKEN&gt;" \
-  https://api.iptwins.net/v1/contacts
-# Résultat attendu : 200 OK
+          <!-- MODULE LEGALACTIONS -->
+          <h4 style="margin-top:24px;color:#e67e22;"><i class="bi bi-file-earmark-text"></i> Module LegalActions</h4>
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:.9em;margin-top:8px;">
+              <thead>
+                <tr style="background:#2c3e50;color:white;">
+                  <th style="padding:10px;text-align:left;">Problème</th>
+                  <th style="padding:10px;text-align:left;">Impact</th>
+                  <th style="padding:10px;text-align:left;">Criticité</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #dee2e6;background:#fff8f8;">
+                  <td style="padding:10px;">Erreur 500 (HTML Laravel) retournée à la place d'une 401 quand le token est manquant</td>
+                  <td style="padding:10px;">Exposition des détails de l'infrastructure interne</td>
+                  <td style="padding:10px;"><span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:8px;">Haute</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;background:#fff3cd;">
+                  <td style="padding:10px;">Dossiers marqués <code>status: ongoing</code> alors qu'ils ont une <code>end_at</code> renseignée</td>
+                  <td style="padding:10px;">Données incohérentes, risque métier</td>
+                  <td style="padding:10px;"><span style="background:#ffc107;color:#333;padding:2px 8px;border-radius:8px;">Moyenne</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;background:#fff3cd;">
+                  <td style="padding:10px;">Paramètre <code>type</code> accepte n'importe quelle valeur libre sans validation</td>
+                  <td style="padding:10px;">Risque de pollution de la base de données</td>
+                  <td style="padding:10px;"><span style="background:#ffc107;color:#333;padding:2px 8px;border-radius:8px;">Moyenne</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;">
+                  <td style="padding:10px;">Champ <code>subject</code> est une String JSON brute — force un <code>JSON.parse()</code> côté front</td>
+                  <td style="padding:10px;">Mauvaise pratique d'API, fragilité front-end</td>
+                  <td style="padding:10px;"><span style="background:#6c757d;color:white;padding:2px 8px;border-radius:8px;">Faible</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-# Test 3 : BOLA → accès à la ressource d'un autre utilisateur
-curl -s -w "%{http_code}" \
-  -H "Authorization: Bearer &lt;MON_TOKEN&gt;" \
-  https://api.iptwins.net/v1/factures/9999
-# Résultat observé : 200 OK ← vulnérabilité identifiée</code></pre>
-
-          <!-- EMPLACEMENT IMAGE RÉSULTATS -->
-          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
-            <i class="bi bi-image" style="font-size:2em;color:#adb5bd;"></i>
-            <p style="color:#adb5bd;margin-top:8px;">
-              📌 <strong>À ajouter :</strong> Capture d'écran des résultats Burp Suite ou OWASP ZAP<br>
-              <em>(ex : assets/img/test-api-resultats.png)</em>
-            </p>
+          <!-- MODULE SERVICES -->
+          <h4 style="margin-top:24px;color:#f57c00;"><i class="bi bi-gear"></i> Module Services</h4>
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:.9em;margin-top:8px;">
+              <thead>
+                <tr style="background:#2c3e50;color:white;">
+                  <th style="padding:10px;text-align:left;">Problème</th>
+                  <th style="padding:10px;text-align:left;">Impact</th>
+                  <th style="padding:10px;text-align:left;">Criticité</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #dee2e6;background:#fff3cd;">
+                  <td style="padding:10px;">Champs <code>product_ref</code> et <code>extension</code> : saisie libre sans whitelist, accepte caractères spéciaux et textes longs</td>
+                  <td style="padding:10px;">Risque d'injection, erreurs 500 imprévues</td>
+                  <td style="padding:10px;"><span style="background:#ffc107;color:#333;padding:2px 8px;border-radius:8px;">Moyenne</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;">
+                  <td style="padding:10px;"><code>/services/{id}</code> — RAS</td>
+                  <td style="padding:10px;">Aucune vulnérabilité détectée</td>
+                  <td style="padding:10px;"><span style="background:#28a745;color:white;padding:2px 8px;border-radius:8px;">OK</span></td>
+                </tr>
+                <tr style="border-bottom:1px solid #dee2e6;">
+                  <td style="padding:10px;"><code>/legal-actions/{id}</code> — RAS</td>
+                  <td style="padding:10px;">Aucune vulnérabilité détectée</td>
+                  <td style="padding:10px;"><span style="background:#28a745;color:white;padding:2px 8px;border-radius:8px;">OK</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </article>
@@ -192,32 +254,14 @@ curl -s -w "%{http_code}" \
         <div class="step-content">
           <h3>Préconisations et corrections</h3>
           <ul>
-            <li>
-              <strong>BOLA :</strong> Ajouter une vérification côté serveur que l'ID demandé
-              appartient bien à l'utilisateur authentifié avant de retourner la ressource.
-            </li>
-            <li>
-              <strong>Rate limiting :</strong> Implémenter un mécanisme de limitation des requêtes
-              sur le endpoint <code>/api/login</code> (ex : 5 tentatives / 15 min par IP).
-            </li>
-            <li>
-              <strong>Tokens JWT :</strong> Vérifier l'expiration des tokens et mettre en place
-              un mécanisme de révocation.
-            </li>
-            <li>
-              <strong>Logs de sécurité :</strong> Journaliser les tentatives d'accès non autorisées
-              pour permettre une détection d'intrusion.
-            </li>
+            <li><strong>Module Users :</strong> Appliquer un masquage des champs sensibles (<code>phone</code>, <code>last_login_at</code>) dans les réponses API — ne retourner que les champs nécessaires (principe du moindre privilège).</li>
+            <li><strong>AuthCodes :</strong> Ne jamais exposer les AuthCodes dans les réponses JSON. Les chiffrer ou les transmettre uniquement via un canal sécurisé dédié.</li>
+            <li><strong>Gestion des erreurs :</strong> Retourner systématiquement une réponse JSON normalisée (401, 403) au lieu de laisser Laravel exposer ses traces HTML en production.</li>
+            <li><strong>Validation des entrées :</strong> Mettre en place une whitelist stricte pour les paramètres libres (<code>type</code>, <code>product_ref</code>, <code>extension</code>) et retourner une 422 sur entrée invalide.</li>
+            <li><strong>Cohérence des statuts :</strong> Ajouter une règle métier côté serveur pour passer automatiquement un dossier de <code>ongoing</code> à <code>closed</code> lorsque <code>end_at</code> est renseigné.</li>
+            <li><strong>Optimisation des payloads :</strong> Utiliser la pagination et limiter les jointures inutiles pour éviter la saturation du front-end et du serveur.</li>
+            <li><strong>Rate limiting :</strong> Implémenter une limitation des requêtes sur <code>/api/login</code> (ex : 5 tentatives / 15 min par IP).</li>
           </ul>
-
-          <!-- EMPLACEMENT RAPPORT PDF -->
-          <div class="diagram-container" style="border:2px dashed #dee2e6;padding:30px;border-radius:8px;text-align:center;background:#f8f9fa;margin-top:16px;">
-            <i class="bi bi-file-pdf" style="font-size:2em;color:#adb5bd;"></i>
-            <p style="color:#adb5bd;margin-top:8px;">
-              📌 <strong>À ajouter :</strong> Rapport PDF de test de sécurité (si disponible)<br>
-              <em>(ex : assets/docs/rapport-test-api.pdf)</em>
-            </p>
-          </div>
         </div>
       </article>
 

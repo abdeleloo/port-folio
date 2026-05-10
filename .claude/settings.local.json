@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash([ -f \"c:/Users/Abdes/Documents/portfolio/port folio/assets/img/$img\" ])"
+    ]
+  }
+}

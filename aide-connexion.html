@@ -25,100 +25,140 @@
 
   <main class="container documentation-section">
     <section class="section">
-      <div class="doc-header">
-        <h2><i class="bi bi-shield-lock"></i> Création de messages d’aide sur la page de connexion</h2>
-        <p>Guides intégrés pour e‑mail, mot de passe, codes 2FA et récupération, avec visuels et étapes.</p>
+
+      <div class="doc-header" style="margin-bottom:40px;">
+        <span class="badge" style="background:#787CB5;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">PHP</span>
+        <span class="badge" style="background:#f7df1e;color:#333;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">JavaScript</span>
+        <span class="badge" style="background:#f57c00;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Entreprise – IPTwins</span>
+        <h2 style="margin-top:16px;"><i class="bi bi-shield-lock"></i> Correction bug bouton bascule domaine dans l’application métier</h2>
+        <p style="color:#6c757d;font-size:1.05em;">Période : Janvier 2025 – Mars 2025 &nbsp;|&nbsp; Contexte : Alternance – IP Twins</p>
+        <p>
+          Suite à une demande interne (issue GitLab de Tristan Verna), j’ai développé et intégré des messages
+          d’aide contextuels sur la page de connexion et le formulaire 2FA de l’application Domainarium II.
+          L’objectif était de réduire les sollicitations du support en guidant les utilisateurs directement
+          depuis l’interface.
+        </p>
+
+        <!-- CONTEXTE ISSUE -->
+        <div style="background:#f8f9fa;border-radius:8px;padding:20px;border-left:4px solid #17a2b8;margin-top:16px;">
+          <h4 style="margin:0 0 8px 0;color:#17a2b8;"><i class="bi bi-git"></i> Issue GitLab — Origine de la demande</h4>
+          <p style="margin:0;font-size:.95em;">
+            <strong>Titre :</strong> Page de login / 2FA – Popups d’aide<br>
+            <strong>Demandeur :</strong> Tristan Verna<br>
+            <strong>Contexte :</strong> Ajouter un bouton « Besoin d’aide ? » sur les formulaires login et 2FA
+            déclenchant une popup d’astuces pour réduire les tickets support.
+          </p>
+          <ul style="margin-top:10px;margin-bottom:0;font-size:.9em;">
+            <li><strong>Login :</strong> Vérifier que le mot de passe mémorisé du gestionnaire est à jour</li>
+            <li><strong>Login :</strong> L’e-mail de login doit être en minuscules</li>
+            <li><strong>2FA :</strong> Ne garder que l’entrée la plus récente dans l’application MFA</li>
+          </ul>
+        </div>
       </div>
 
+      <!-- ÉTAPE 1 : POPUP EMAIL -->
       <article class="doc-step">
         <div class="step-number">1</div>
         <div class="step-content">
-          <h3>Message d’aide — E‑mail</h3>
-          <p>Expliquer où trouver l’e‑mail professionnel, le format attendu et quoi faire en cas d’oubli.</p>
+          <h3>Popup d’aide — Champ E‑mail</h3>
+          <p>
+            Un bouton d’aide contextuel déclenche une popup expliquant le format attendu
+            et la procédure en cas d’oubli. Le message guide l’utilisateur sans quitter la page.
+          </p>
+          <ul>
+            <li>Saisir l’adresse e-mail professionnelle au format <code>prenom.nom@votre-domaine</code></li>
+            <li>En cas d’oubli, utiliser le lien <strong>« Mot de passe oublié »</strong></li>
+          </ul>
           <div class="code-card">
-            <img src="assets/img/aide-mail.png" alt="Aide e‑mail sur la page de connexion" class="img-fluid">
-            <div class="code-description">Saisir l’e‑mail pro (prénom.nom@entreprise.com). Utiliser « mot de passe oublié » si nécessaire.</div>
+            <img src="assets/img/aide-mail.png" alt="Popup aide e-mail sur Domainarium II" style="width:100%;border-radius:6px;">
+            <div class="code-description">Popup affichée au clic sur « Besoin d’aide ? » — champ e-mail du formulaire de connexion Domainarium II.</div>
             <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
           </div>
         </div>
       </article>
 
+      <!-- ÉTAPE 2 : POPUP MOT DE PASSE -->
       <article class="doc-step">
         <div class="step-number">2</div>
         <div class="step-content">
-          <h3>Message d’aide — Mot de passe</h3>
-          <p>Rappeler les exigences de complexité et le flux de réinitialisation.</p>
+          <h3>Popup d’aide — Champ Mot de passe</h3>
+          <p>
+            La popup mot de passe rappelle les exigences de complexité et oriente vers la réinitialisation.
+          </p>
+          <ul>
+            <li>Au moins 8 caractères</li>
+            <li>Majuscules et minuscules</li>
+            <li>Chiffres et symboles requis</li>
+          </ul>
           <div class="code-card">
-            <img src="assets/img/aide-mode_de-passe.png" alt="Aide mot de passe sur la page de connexion" class="img-fluid">
-            <div class="code-description">Min. 8 caractères, majuscules/minuscules, chiffres et symboles.</div>
+            <img src="assets/img/aide-mode_de-passe.png" alt="Popup aide mot de passe sur Domainarium II" style="width:100%;border-radius:6px;">
+            <div class="code-description">Popup affichée au clic sur « Besoin d’aide ? » — champ mot de passe du formulaire de connexion.</div>
             <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
           </div>
         </div>
       </article>
 
+      <!-- ÉTAPE 3 : 2FA -->
       <article class="doc-step">
         <div class="step-number">3</div>
         <div class="step-content">
-          <h3>Message d’aide — Code 2FA</h3>
-          <p>Indiquer où trouver le code (application 2FA) et gérer les problèmes de synchronisation.</p>
-          <div class="code-card">
-            <img src="assets/img/aide-2fa.png" alt="Aide code 2FA" class="img-fluid">
-            <div class="code-description">Ouvrir l’app 2FA (ex. Authenticator) et saisir le code valide.</div>
-            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
+          <h3>Popup d’aide — Formulaire 2FA</h3>
+          <p>
+            Sur le formulaire de double authentification, la popup rappelle la bonne pratique
+            liée à l’application MFA pour éviter les erreurs de code.
+          </p>
+          <ul>
+            <li>Utiliser uniquement <strong>l’entrée la plus récente</strong> dans l’application MFA</li>
+            <li>Supprimer les doublons d’entrées pour ce compte</li>
+          </ul>
+
+          <!-- BILAN IMPACT -->
+          <div style="background:#d4edda;border-radius:8px;padding:20px;margin-top:20px;border-left:4px solid #28a745;">
+            <h4 style="margin:0 0 8px 0;color:#28a745;"><i class="bi bi-graph-down-arrow"></i> Impact sur le support</h4>
+            <p style="margin:0;font-size:.95em;">
+              Les popups d’aide contextuelles ont permis de réduire les sollicitations du support technique
+              sur les problèmes de connexion, en apportant directement la réponse à l’utilisateur
+              sans rupture de navigation.
+            </p>
           </div>
         </div>
       </article>
 
+      <!-- BILAN -->
       <article class="doc-step">
         <div class="step-number">4</div>
         <div class="step-content">
-          <h3>Message d’aide — Où trouver le code d’accès</h3>
-          <p>Expliquer les emplacements habituels: e‑mail d’onboarding, portail RH/IT, gestionnaire d’identifiants.</p>
-          <div class="code-card">
-            <img src="assets/img/aide-code.png" alt="Où trouver le code d’accès" class="img-fluid">
-            <div class="code-description">Code fourni lors de l’onboarding ou via le portail interne.</div>
-            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
+          <h3>Bilan et compétences acquises</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div>
+              <h4 style="color:#28a745;"><i class="bi bi-check2-all"></i> Points positifs</h4>
+              <ul>
+                <li>Traitement d’une demande issue GitLab réelle</li>
+                <li>Intégration front-end sans rechargement de page (popup JS)</li>
+                <li>Amélioration de l’UX sur un formulaire critique</li>
+                <li>Réduction mesurable des tickets support connexion</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color:#e74c3c;"><i class="bi bi-exclamation-circle"></i> Axes d’amélioration</h4>
+              <ul>
+                <li>Internationalisation des messages (FR/EN)</li>
+                <li>Tests utilisateurs pour valider la clarté du message</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:24px;padding:20px;background:#e8f5e9;border-radius:8px;border-left:4px solid #28a745;">
+            <h4><i class="bi bi-mortarboard"></i> Compétences BTS SIO couvertes</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Répondre aux incidents et demandes d’évolution</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Traiter des demandes applicatives</span>
+              <span style="background:#2c3e50;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Mettre à disposition un service</span>
+              <span style="background:#17a2b8;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">Travailler en mode projet</span>
+            </div>
           </div>
         </div>
       </article>
 
-      <article class="doc-step">
-        <div class="step-number">5</div>
-        <div class="step-content">
-          <h3>Flux — Mot de passe oublié</h3>
-          <p>Étapes de récupération: lien « mot de passe oublié », e‑mail de réinitialisation, exigences de nouveau mot de passe.</p>
-          <div class="code-card">
-            <img src="assets/img/aide-oubli-mdp.png" alt="Flux mot de passe oublié" class="img-fluid">
-            <div class="code-description">Réinitialiser en respectant les règles de complexité et délais.</div>
-            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="doc-step">
-        <div class="step-number">6</div>
-        <div class="step-content">
-          <h3>Vue d’ensemble — Aide connexion</h3>
-          <p>Illustrer la page avec messages contextuels et icônes d’aide.</p>
-          <div class="diagram-container">
-            <img src="assets/img/aide-connexion-overview.png" alt="Vue d’ensemble aide connexion" class="diagram-img">
-            <p class="diagram-caption">Messages contextuels pour e‑mail, mot de passe et 2FA.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="doc-step">
-        <div class="step-number">7</div>
-        <div class="step-content">
-          <h3>Support — Contacter l’assistance</h3>
-          <p>Préciser les canaux: e‑mail support, hotline, ticket interne.</p>
-          <div class="code-card">
-            <img src="assets/img/aide-contact-support.png" alt="Contact support" class="img-fluid">
-            <div class="code-description">Coordonnées de l’assistance et horaires.</div>
-            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l’image</button>
-          </div>
-        </div>
-      </article>
     </section>
   </main>
 

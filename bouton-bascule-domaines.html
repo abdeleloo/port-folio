@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Correction Bug Bouton Bascule Domaines – Portfolio</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/bootstrap-icons-1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="project-page">
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Bouton Bascule — Domaines</h1>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="Mes_projets.html" class="active">Projets</a></li>
+          <li><a href="BTS_SIO.html">BTS SIO</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="A_propos_de_moi.html">Qui suis-je</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container documentation-section">
+    <section class="section">
+
+      <div class="doc-header" style="margin-bottom:40px;">
+        <span class="badge" style="background:#787CB5;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">PHP</span>
+        <span class="badge" style="background:#f7df1e;color:#333;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">JavaScript</span>
+        <span class="badge" style="background:#f57c00;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;margin-left:6px;">Entreprise – IPTwins</span>
+        <h2 style="margin-top:16px;"><i class="bi bi-toggles"></i> Correction du bug du bouton bascule multi-domaines</h2>
+        <p style="color:#6c757d;font-size:1.05em;">Période : Octobre 2024 – Novembre 2024 &nbsp;|&nbsp; Contexte : Alternance – IP Twins</p>
+        <p>
+          Dans l'application métier Domainarium II d'IP Twins, un bug affectait le bouton de bascule
+          permettant de naviguer entre plusieurs domaines d'un portefeuille client. Le comportement
+          était incohérent : le changement de domaine actif ne se reflétait pas correctement dans
+          l'interface, perturbant les opérations des équipes.
+        </p>
+      </div>
+
+      <!-- IDENTIFICATION DU BUG -->
+      <article class="doc-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Identification et analyse du problème</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px;">
+            <div style="background:#fff3cd;border-radius:8px;padding:20px;border-left:4px solid #ffc107;">
+              <h4><i class="bi bi-bug" style="color:#e67e22;"></i> Symptômes observés</h4>
+              <ul>
+                <li>Le domaine actif ne changeait pas après clic sur le bouton bascule</li>
+                <li>Les données affichées restaient celles du domaine précédent</li>
+                <li>Comportement aléatoire selon l'ordre de navigation</li>
+                <li>Aucune erreur visible dans la console navigateur</li>
+              </ul>
+            </div>
+            <div style="background:#f8d7da;border-radius:8px;padding:20px;border-left:4px solid #e74c3c;">
+              <h4><i class="bi bi-search" style="color:#e74c3c;"></i> Cause identifiée</h4>
+              <ul>
+                <li>L'identifiant du domaine actif n'était pas mis à jour dans l'état de l'application</li>
+                <li>Le composant affichait l'état mémorisé au chargement de la page</li>
+                <li>L'event listener sur le bouton ne propageait pas correctement la valeur sélectionnée</li>
+              </ul>
+            </div>
+          </div>
+          <div class="code-card" style="margin-top:20px;">
+            <img src="assets/img/portefeuille-utlisateur.png" alt="Vue portefeuille — bouton bascule domaines" style="width:100%;border-radius:6px;">
+            <div class="code-description">Vue du portefeuille utilisateur avec le bouton de bascule entre domaines — interface Domainarium II.</div>
+            <button class="btn btn-outline enlarge-btn" type="button"><i class="bi bi-arrows-fullscreen"></i> Agrandir l'image</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CORRECTION -->
+      <article class="doc-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Correction du code</h3>
+          <p>La correction a porté sur deux points : la mise à jour de l'état actif au clic, et le rechargement des données associées au domaine sélectionné.</p>
+
+          <h4 style="margin-top:20px;"><i class="bi bi-code-slash"></i> Avant – Code problématique</h4>
+          <pre style="background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;font-size:.9em;overflow-x:auto;"><code>// ❌ AVANT : l'ID du domaine n'est pas transmis au rechargement
+document.querySelectorAll('.btn-bascule').forEach(btn => {
+  btn.addEventListener('click', () => {
+    switchDomain(); // appel sans argument → domaine actif non mis à jour
+  });
+});</code></pre>
+
+          <h4 style="margin-top:20px;"><i class="bi bi-code-slash"></i> Après – Code corrigé</h4>
+          <pre style="background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;font-size:.9em;overflow-x:auto;"><code>// ✅ APRÈS : transmission de l'ID du domaine sélectionné
+document.querySelectorAll('.btn-bascule').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const domainId = btn.dataset.domainId;
+    switchDomain(domainId); // mise à jour de l'état actif
+  });
+});
+
+function switchDomain(domainId) {
+  // Mise à jour visuelle du bouton actif
+  document.querySelectorAll('.btn-bascule').forEach(b => b.classList.remove('active'));
+  document.querySelector(`[data-domain-id="${domainId}"]`).classList.add('active');
+  // Rechargement des données du domaine sélectionné
+  loadDomainData(domainId);
+}</code></pre>
+
+          <div style="background:#d4edda;border-radius:8px;padding:16px;border-left:4px solid #28a745;margin-top:16px;">
+            <h5 style="margin:0 0 6px 0;color:#28a745;"><i class="bi bi-check-circle"></i> Résultat</h5>
+            <p style="margin:0;font-size:.9em;">Après correction, le bouton bascule met bien à jour le domaine actif et recharge les données correspondantes. La correction a été validée et déployée en production.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- TESTS -->
+      <article class="doc-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Tests de validation</h3>
+          <ul>
+            <li>Test de bascule entre plusieurs domaines consécutifs → données correctement mises à jour</li>
+            <li>Test avec un portefeuille à domaine unique → comportement inchangé</li>
+            <li>Test de non-régression sur les autres fonctionnalités de la page portefeuille</li>
+            <li>Validation par l'utilisateur final après déploiement</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- BILAN -->
+      <article class="doc-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Bilan et compétences acquises</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div>
+              <h4 style="color:#28a745;"><i class="bi bi-check2-all"></i> Points positifs</h4>
+              <ul>
+                <li>Débogage efficace sur une application existante complexe</li>
+                <li>Compréhension de la gestion d'état en JavaScript</li>
+                <li>Correction validée et déployée rapidement</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color:#e74c3c;"><i class="bi bi-exclamation-circle"></i> Axes d'amélioration</h4>
+              <ul>
+                <li>Mettre en place des tests automatisés sur les composants interactifs</li>
+                <li>Documenter les comportements attendus des boutons dans la base de connaissance</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:24px;padding:20px;background:#e8f5e9;border-radius:8px;border-left:4px solid #28a745;">
+            <h4><i class="bi bi-mortarboard"></i> Compétences BTS SIO couvertes</h4>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C3 – Développer la présentation</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C5 – Tester une solution</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C6 – Maintenir / faire évoluer</span>
+              <span style="background:#28a745;color:white;padding:4px 12px;border-radius:12px;font-size:.85em;">C7 – Documenter</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Abdessamad EL-OUASSAI – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
